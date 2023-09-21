@@ -1,4 +1,4 @@
-    import java.util.Random;
+import java.util.Random;
 public class Dado{
   private int sideUp;
 
@@ -18,8 +18,8 @@ public class Dado{
    }
    public String toString()
    {
-        return "Lado do dado: "+sideUp ;
-        //arrumar isso aqui
+      return "Lado do dado: "+sideUp ;
+      //arrumar isso aqui
    }
 }
 
