@@ -1,4 +1,3 @@
-import java.util.Scanner;
 public class JogoGeneral {
 
     
@@ -57,11 +56,17 @@ public class JogoGeneral {
             case "6":
                 Jogada_de_6();
                 break;
+            case"7":
+                Trinca();
+                break;
             case "T":
                 Trinca();
                 break;
             case "t":
                 Trinca();
+                break;
+            case"8":
+                Quadra();
                 break;
             case "Q":
                 Quadra();
@@ -69,11 +74,17 @@ public class JogoGeneral {
             case "q":
                 Quadra();
                 break;
+            case "9":
+                FullHand();
+                break;
             case "F":
                 FullHand();
                 break;
             case "f":
                 FullHand();
+                break;
+            case "10":
+                Sequencia_alta();
                 break;
             case "S+":
                 Sequencia_alta();
@@ -81,17 +92,26 @@ public class JogoGeneral {
             case "s+":
                 Sequencia_alta();
                 break;
+            case "11":
+                Sequencia_baixa();
+                break;
             case "S-":
                 Sequencia_baixa();
                 break;
             case "s-":
                 Sequencia_baixa();
                 break;
+            case "12":
+                General();
+                break;
             case "G":
                 General();
                 break;
             case "g":
                 General();
+                break;
+            case "13":
+                Jogada_aleatoria();
                 break;
             case "X":
                 Jogada_aleatoria();
@@ -105,11 +125,7 @@ public class JogoGeneral {
         }
         
     }
-    public static void main(String[] argumento)
-    {
-
-    }
-    public void Jogada_de_1 ()// o que caralho precisa passar por parametro ?
+    public void Jogada_de_1 ()
     {
         int i, pontos=0;
         if( jogadas[0] == -1)
@@ -517,5 +533,24 @@ public class JogoGeneral {
         {
             System.out.println("Opcao invalida. Tente novamente");
         }
+    }
+    public String toString()
+    {
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < 13; i++)
+        {
+            if (dados[i].getSideUp() == -1) {
+                result.append("-");
+            } else {
+                result.append(dados[i].getSideUp());
+            }
+
+            if (i < 12) {
+                
+                result.append("\t");
+               
+            }
+        }
+        return ">para qual jogada deseja marcar: [1 - 13]\n1\t2\t3\t4\t5\t6\t7(T)\t8(Q)\t9(F)\t10(S-)\t11(S+)\t12(G)\t13(X)\n" + result.toString();
     }
 }
