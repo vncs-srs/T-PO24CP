@@ -18,7 +18,7 @@ public class Dado{
    }
    public String toString()
    {
-      return "Lado do dado: "+sideUp ;
+      return "Lado do dado: "+ sideUp ;
       //arrumar isso aqui
    }
 }

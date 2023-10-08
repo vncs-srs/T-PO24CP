@@ -80,7 +80,13 @@ public class usaCampeonato {
                     // Lógica para gravacao
                     break;
                 case 'd':
-                    // Lógica para mostrar dados
+                    String arquivo = "Resulados.txt";
+                    try (BufferedReader br = new BufferedReader(new FileReader(arquivo))) {
+                        String linha;
+                        while ((linha = br.readLine()) != null) {
+                            System.out.println(linha);
+                        }
+        }
                     break;
                 case 's':
                     System.out.println("Saindo do jogo. Até mais!");
@@ -94,7 +100,7 @@ public class usaCampeonato {
     }
 
     public static void main(String[] args) {
-        Scanner menu = new Scanner (System.in );
+        Scanner menu = new Scanner (System.in);
         Campeonato jogo = new Campeonato();
         jogo.menu();
     }
