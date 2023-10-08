@@ -33,17 +33,11 @@ public class JogoGeneral {
         }
     }
 
-    public JogoGeneral()
+    public JogoGeneral(String escolha)
     {
-        int i,pontos,aux, mostraDado;
-        String escolha;
-        Scanner teclado = new Scanner(System.in);
         dados = new Dado[5];
         jogadas = new int [13];
-        pontos=0;
-        //aux = dados[i].getSideUp()
-        
-       
+
         switch (escolha){
             case "1":
                 Jogada_de_1();
@@ -384,40 +378,7 @@ public class JogoGeneral {
             System.out.println("Opcao invalida. Tente novamente");
         }
     }
-    /*public void FullHand()//ta aqui so pq eu mudei tanto essa funcao que eu queria uma copia de backup
-    {
-        int i,j, pontos=0, acumulador=0, acumulador2=0;
-        if( jogadas[7] == -1)
-        {
-            for(i=0;i<5;i++)
-            {
-                for(j=i+1;j<5;j++)
-                { 
-                    if(dados[i].getSideUp() == dados[j].getSideUp())
-                    {
-                        acumulador= acumulador+1;
-                    }
-                } 
-            }
-            if (acumulador<=2)
-            {
-                for(i=0;i<5;i++)
-                {
-                    pontos = dados[i].getSideUp();
-                }
-                jogadas[7]= pontos;
-            }
-            else
-            {
-                jogadas[7] = 0;
-                System.out.println("Seus valores nao sao validos pra a jogada, pontucao = 0");
-            }
-        }
-        else
-        {
-            System.out.println("Opcao invalida. Tente novamente");
-        }
-    } */
+   
     public void Sequencia_alta()
     {
         int i,aux;
