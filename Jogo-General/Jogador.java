@@ -32,3 +32,4 @@ public class Jogador {
     public void mostraJogadasExecutadas() {
         System.out.println("Jogadas executadas por " + nome + ": " + jogadasExecutadas);
     }
+}
