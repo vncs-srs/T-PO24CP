@@ -27,7 +27,7 @@ public class usaCampeonato {
             System.out.println("|--------------------------------------------------------------|");
             System.out.println("| (a) Adicionar jogador                                        |");
             System.out.println("| (r) Remover jogador                                          |");
-            System.out.println("| (j) Jogar rodada                                             |");
+            System.out.println("| (i) Iniciar Jogo                                             |");
             System.out.println("| (m) Mostrar cartela                                          |");
             System.out.println("| (g) Gravar os dados                                          |");
             System.out.println("| (d) Dados do campeonato                                      |");
@@ -70,23 +70,17 @@ public class usaCampeonato {
                     nome = opcao.next();
                     removerJogador(nome);
                     break;
-                case 'j':
-                    // Lógica para executar rodada
+                case 'i':
+                    iniciarCampeonato()
                     break;
                 case 'm':
-                    // Lógica para mostrar cartela
+                    mostrarCartela()
                     break;
                 case 'g':
-                    // Lógica para gravacao
+                    gravarEmArquivo()
                     break;
                 case 'd':
-                    String arquivo = "Resulados.txt";
-                    try (BufferedReader br = new BufferedReader(new FileReader(arquivo))) {
-                        String linha;
-                        while ((linha = br.readLine()) != null) {
-                            System.out.println(linha);
-                        }
-        }
+                    lerDoArquivo();
                     break;
                 case 's':
                     System.out.println("Saindo do jogo. Até mais!");
