@@ -18,7 +18,7 @@ public class JogoGeneral {
     public void rolarDados()
     {
         int i;
-        for(i=0;i<4;i++)
+        for(i=0;i<5;i++)
         {   
             dados[i].roll();
         }
@@ -27,7 +27,7 @@ public class JogoGeneral {
     public void mostraValorDados()
     {
         int i;
-        for(i=0;i<4;i++)
+        for(i=0;i<5;i++)
         {   
             dados[i].getSideUp();
         }
@@ -341,7 +341,7 @@ public class JogoGeneral {
     } 
     public void FullHand()
     {
-        int i, numerosDeValoresDistintos=1;
+        int i,contaTrio=0, numerosDeValoresDistintos=1;
         boolean ehDistinto;
         
 
@@ -352,10 +352,13 @@ public class JogoGeneral {
             {
                 ehDistinto = true;
 
-                for (int j = 0; j < i; j++) {
-                    if (dados[i].getSideUp() ==dados[j].getSideUp()) {
+                for (int j = 0; j < i; j++) 
+                {
+                    
+                    if (dados[i].getSideUp() ==dados[j].getSideUp()) 
+                    {
+                        contaTrio++;
                         ehDistinto = false;
-                        break;
                     }
                 }
 
@@ -365,9 +368,10 @@ public class JogoGeneral {
                 }
             }
 
-            if (numerosDeValoresDistintos<=2)
+            if ((numerosDeValoresDistintos<=2)&&(contaTrio!=6))
             {
                 jogadas[8]= 25;
+                 
             }
             else
             {
