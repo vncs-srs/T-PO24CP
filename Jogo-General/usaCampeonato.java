@@ -1,18 +1,14 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.util.List;
 import java.util.Scanner;
-import java.util.ArrayList;
 import java.util.Iterator;
 
 public class usaCampeonato {
-    private List<Jogador> jogadores;
     private String tipoJogador;
     private String nome;
 
     public void menu() {
         
-        this.jogadores = new ArrayList<>();
         char opcao;
         String arquivo = "jogogeneralASCII.txt";
         try (BufferedReader br = new BufferedReader(new FileReader(arquivo))) {
@@ -44,24 +40,24 @@ public class usaCampeonato {
                     opcao = entrada.nextInt();
             
                     if(opcao == 'm' || opcao == 'M'){
-                        tipoJogador = 'Maquina';
+                        tipoJogador = "Maquina";
                         this.tipoJogador = tipoJogador;
-                        nome = 'Bob-bot';
+                        nome = "Bob-bot";
                         this.nome = nome;
                     }
             
                     else if(opcao == 'h' || opcao == 'H'){
-                        tipoJogador = 'Humano';
+                        tipoJogador = "Humano";
                         this.tipoJogador = tipoJogador;
                         System.out.print("Nome do Jogador: ");
                         nome = entrada.nextInt();
                         this.nome = nome;
                         } 
                     else {
-                        Syetem.out.println("Opção inválida. Tente novamente.")
+                        Syetem.out.println("Opção inválida. Tente novamente.");
                     }
                     adicionadoJogador(nome, tipoJogador);
-                    System.out.print("Deseja Inserir um novo Jogador(s/n): ")
+                    System.out.print("Deseja Inserir um novo Jogador(s/n): ");
                     System.out.flush();
                 } while (opcao == 's');
                     break;
@@ -71,13 +67,13 @@ public class usaCampeonato {
                     removerJogador(nome);
                     break;
                 case 'i':
-                    iniciarCampeonato()
+                    iniciarCampeonato();
                     break;
                 case 'm':
-                    mostrarCartela()
+                    mostrarCartela();
                     break;
                 case 'g':
-                    gravarEmArquivo()
+                    gravarEmArquivo();
                     break;
                 case 'd':
                     lerDoArquivo();

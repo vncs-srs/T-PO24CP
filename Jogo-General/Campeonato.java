@@ -1,34 +1,40 @@
-import java.util.List;
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.util.ArrayList;
 import java.util.Iterator;
 
 public class Campeonato {
-    private List<Jogador> jogadores;
+    private Jogador[] jogadores;
+    private int quantidadeJogadores;
 
-    public Campeonato() {
-        this.jogadores = new ArrayList<>();
+    public Campeonato(int maxJogadores) {
+        this.jogadores = new Jogador[maxJogadores];
+        this.quantidadeJogadores = 0;
     }
-
-    public void adicionarJogador(String nome, String tipo) {
-        Jogador jogador = new Jogador(nome, tipo);
-        jogadores.add(jogador);
-        System.out.println("Jogador " + nome + " adicionado.");
+    public void adicionarJogador(Jogador jogador) {
+        if (quantidadeJogadores < jogadores.length) {
+            jogadores[quantidadeJogadores] = jogador;
+            quantidadeJogadores++;
+            System.out.println("Jogador " + jogador.getNome() + " adicionado.");
+        } else {
+            System.out.println("Não é possível adicionar mais jogadores. Limite atingido.");
+        }
     }
-
     public void removerJogador(String nome) {
-        Iterator<Jogador> iterator = jogadores.iterator();
-        while (iterator.hasNext()) {
-            Jogador jogador = iterator.next();
-            if (jogador.getNome().equals(nome)) {
-                iterator.remove();
+        for (int i = 0; i < quantidadeJogadores; i++) {
+            if (jogadores[i].getNome().equals(nome)) {
+                for (int j = i; j < quantidadeJogadores - 1; j++) {
+                    jogadores[j] = jogadores[j + 1];
+                }
+                jogadores[quantidadeJogadores - 1] = null;
+                quantidadeJogadores--;
                 System.out.println("Jogador " + nome + " removido.");
                 return;
             }
         }
         System.out.println("Jogador " + nome + " não encontrado.");
     }
+
+
     public void iniciarCampeonato(){
         int rodadas = 13; 
         for (int i = 0; i < rodadas; i++) {
