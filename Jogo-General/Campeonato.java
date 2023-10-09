@@ -6,7 +6,8 @@ public class Campeonato {
     private Jogador[] jogadores;
     private int quantidadeJogadores;
 
-    public Campeonato(int maxJogadores) {
+    public Campeonato() {
+        int maxJogadores = 10;
         this.jogadores = new Jogador[maxJogadores];
         this.quantidadeJogadores = 0;
     }
@@ -18,6 +19,7 @@ public class Campeonato {
         } else {
             System.out.println("Não é possível adicionar mais jogadores. Limite atingido.");
         }
+        return;
     }
     public void removerJogador(String nome) {
         for (int i = 0; i < quantidadeJogadores; i++) {
@@ -42,7 +44,7 @@ public class Campeonato {
             for (Jogador jogador : jogadores) {
                 System.out.println("\nJogador " + jogador.getNome() + " (" + jogador.getTipo() + ")");
                 jogador.jogarDados();
-                jogador.mostrarJogadasExecutadas();
+                jogador.mostraJogadasExecutadas();
             }
         }
     }
@@ -52,7 +54,7 @@ public class Campeonato {
     public void gravarEmArquivo(){
         
     }
-    public void lerDoArquivo(){
+    /*public void lerDoArquivo(){
         String arquivo = "Resulados.txt";
         try (BufferedReader br = new BufferedReader(new FileReader(arquivo))) {
            String linha;
@@ -60,5 +62,5 @@ public class Campeonato {
                 System.out.println(linha);
             }
         }
-    }
+    }*/
 }

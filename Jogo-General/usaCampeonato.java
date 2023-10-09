@@ -4,14 +4,18 @@ import java.util.Scanner;
 import java.util.Iterator;
 
 public class usaCampeonato {
-    private String tipoJogador;
-    private String nome;
-    private Campeonato campeonato;
+
+    //private Campeonato campeonato;
+    //private Jogador jogador;
 
 
-    public void menu() {
+    public static void menu(Campeonato jogo) {
+        String tipoJogador;
+        String nome;
         char opcao;
-        this.campeonato = campeonato;
+            Scanner menu = new Scanner (System.in);
+
+        //this.campeonato = campeonato;
 
         do {
             System.out.println("                > Menu: ");
@@ -30,48 +34,55 @@ public class usaCampeonato {
             switch (opcao) {
                 case 'a':    
                 do {    
-                    Scanner entrada = new Scanner (System .in);
+
+                    Scanner entrada = new Scanner (System.in);
+                    System.out.print("Nome: ");
+                    nome = entrada.next();
+                    System.out.print("Tipo: ");
+                    tipoJogador = entrada.next();
+                    Jogador jogador = new Jogador(nome,tipoJogador);
                     System.out.print("Tipo de Jogador Humano ou Maquina(H/m): ");
-                    opcao = entrada.nextInt();
+                    opcao = entrada.next().charAt(0);
             
                     if(opcao == 'm' || opcao == 'M'){
                         tipoJogador = "Maquina";
-                        this.tipoJogador = tipoJogador;
+                        //this.tipoJogador = tipoJogador;
                         nome = "Bob-bot";
-                        this.nome = nome;
+                        //this.nome = nome;
                     }
             
                     else if(opcao == 'h' || opcao == 'H'){
                         tipoJogador = "Humano";
-                        this.tipoJogador = tipoJogador;
+                        //this.tipoJogador = tipoJogador;
                         System.out.print("Nome do Jogador: ");
-                        nome = entrada.nextInt();
-                        this.nome = nome;
+                        nome = entrada.next();
+                        //this.nome = nome;
                         } 
                     else {
-                        Syetem.out.println("Opção inválida. Tente novamente.");
+                        System.out.println("Opção inválida. Tente novamente.");
                     }
-                    campeonato.adicionadoJogador(nome, tipoJogador);
+                    jogo.adicionarJogador(jogador);
                     System.out.print("Deseja Inserir um novo Jogador(s/n): ");
                     System.out.flush();
                 } while (opcao == 's');
                     break;
                 case 'r':
+                    Scanner name = new Scanner(System.in);
                     System.out.println("Qual Jogador deseja remover: ");
-                    nome = opcao.next();
-                    campeonato.removerJogador(nome);
+                    nome = name.next();
+                    jogo.removerJogador(nome);
                     break;
                 case 'i':
-                    campeonato.iniciarCampeonato();
+                    jogo.iniciarCampeonato();
                     break;
                 case 'm':
-                    campeonato.mostrarCartela();
+                    jogo.mostrarCartela();
                     break;
                 case 'g':
-                    campeonato.gravarEmArquivo();
+                    jogo.gravarEmArquivo();
                     break;
                 case 'd':
-                    campeonato.lerDoArquivo();
+                    //campeonato.lerDoArquivo();
                     break;
                 case 's':
                     System.out.println("Saindo do jogo. Até mais!");
@@ -85,17 +96,16 @@ public class usaCampeonato {
     }
 
     public static void main(String[] args) {
-        Scanner menu = new Scanner (System.in);
         Campeonato jogo = new Campeonato();
 
-        String arquivo = "jogogeneralASCII.txt";
+        /*String arquivo = "jogogeneralASCII.txt";
         try (BufferedReader br = new BufferedReader(new FileReader(arquivo))) {
             String linha;
             while ((linha = br.readLine()) != null) {
                 System.out.println(linha);
             }
-        }
-        jogo.menu();
+        }*/
+        menu(jogo);
     }
 }
                                 
