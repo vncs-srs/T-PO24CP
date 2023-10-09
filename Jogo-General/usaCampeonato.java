@@ -8,15 +8,7 @@ public class usaCampeonato {
     private String nome;
 
     public void menu() {
-        
         char opcao;
-        String arquivo = "jogogeneralASCII.txt";
-        try (BufferedReader br = new BufferedReader(new FileReader(arquivo))) {
-            String linha;
-            while ((linha = br.readLine()) != null) {
-                System.out.println(linha);
-            }
-        }
 
         do {
             System.out.println("                > Menu: ");
@@ -92,6 +84,14 @@ public class usaCampeonato {
     public static void main(String[] args) {
         Scanner menu = new Scanner (System.in);
         Campeonato jogo = new Campeonato();
+
+        String arquivo = "jogogeneralASCII.txt";
+        try (BufferedReader br = new BufferedReader(new FileReader(arquivo))) {
+            String linha;
+            while ((linha = br.readLine()) != null) {
+                System.out.println(linha);
+            }
+        }
         jogo.menu();
     }
 }
