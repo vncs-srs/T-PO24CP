@@ -3,12 +3,12 @@ import java.util.List;
 public class Jogador {
     private String nome;
     private String tipo;
-    private List<Integer> jogadasExecutadas;
-    private int[] dados;
+    private JogoGeneral General ;
 
     public Jogador(String nome, String tipo) {
         this.nome = nome;
         this.tipo = tipo;
+        this.General = new JogoGeneral();
     }
 
     public String getNome() {
@@ -25,9 +25,10 @@ public class Jogador {
                 ", tipo='" + tipo + '\'' +
                 '}';
     }
-    public void jogarDados(int dados) { 
-        dados.rolarDados();
-        System.out.println("Jogador " + nome + " jogou o dado e obteve: " + dados);
+    public void jogarDados() { 
+        General.rolarDados();
+        System.out.println("Jogador " + nome + " jogou o dado e obteve: " );
+        General.mostraValorDados();
     }
     public void mostraJogadasExecutadas() {
         System.out.println("Jogadas executadas por " + nome + ": " + jogadasExecutadas);

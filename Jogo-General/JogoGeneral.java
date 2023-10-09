@@ -8,7 +8,7 @@ public class JogoGeneral {
     {
         int i;
         //inicializa jogadas com -1
-        for(i=0;i<12;i++){
+        for(i=0;i<13;i++){
            
             jogadas[i]= -1;
         }
@@ -28,95 +28,86 @@ public class JogoGeneral {
         int i;
         for(i=0;i<5;i++)
         {   
-            dados[i].getSideUp();
+            System.out.print(dados[i].getSideUp());
+            if(i!=4)
+            {
+                System.out.print(" ");
+            }
         }
     }
-
-    public JogoGeneral(String escolha)
+    public void mostraJogadas()
+    {
+        int i;
+        for(i=0;i<13;i++)
+        {   
+            if(jogadas[i] == -1)
+            {
+                System.out.print("-");
+            }
+            else
+            {
+                System.out.print(jogadas[i]);
+            }
+            if(i!=12)
+            {
+                System.out.print(" ");
+            }
+        }
+    }
+    public JogoGeneral()
+    {
+        dados = new Dado[5];
+        jogadas = new int [13];
+        inicializaJogadas();
+        for (int i=0;i<5;i++)
+        {
+            dados[i]=new Dado();
+        }
+    }
+    //mudar para o objeto jogador
+    public void validarJogada(int escolha)
     {
         dados = new Dado[5];
         jogadas = new int [13];
 
         switch (escolha){
-            case "1":
+            case 1:
                 Jogada_de_1();
                 break;
-            case "2":
+            case 2:
                 Jogada_de_2();
                 break;
-            case "3":
+            case 3:
                 Jogada_de_3();
                 break;
-            case "4":
+            case 4:
                 Jogada_de_4();
                 break;
-            case "5":
+            case 5:
                 Jogada_de_5();
                 break;
-            case "6":
+            case 6:
                 Jogada_de_6();
                 break;
-            case"7":
+            case 7:
                 Trinca();
                 break;
-            case "T":
-                Trinca();
-                break;
-            case "t":
-                Trinca();
-                break;
-            case"8":
+            case 8:
                 Quadra();
                 break;
-            case "Q":
-                Quadra();
-                break;
-            case "q":
-                Quadra();
-                break;
-            case "9":
+            case 9:
                 FullHand();
                 break;
-            case "F":
-                FullHand();
-                break;
-            case "f":
-                FullHand();
-                break;
-            case "10":
+            case 10:
                 Sequencia_alta();
                 break;
-            case "S+":
-                Sequencia_alta();
-                break;
-            case "s+":
-                Sequencia_alta();
-                break;
-            case "11":
+            case 11:
                 Sequencia_baixa();
                 break;
-            case "S-":
-                Sequencia_baixa();
-                break;
-            case "s-":
-                Sequencia_baixa();
-                break;
-            case "12":
+            case 12:
                 General();
                 break;
-            case "G":
-                General();
-                break;
-            case "g":
-                General();
-                break;
-            case "13":
-                Jogada_aleatoria();
-                break;
-            case "X":
-                Jogada_aleatoria();
-                break;
-            case "x":
+            case 13:
                 Jogada_aleatoria();
                 break;
             default:
