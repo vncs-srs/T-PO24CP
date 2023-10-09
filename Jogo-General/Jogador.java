@@ -1,5 +1,3 @@
-import java.util.List;
-
 public class Jogador {
     private String nome;
     private String tipo;
@@ -31,6 +29,7 @@ public class Jogador {
         General.mostraValorDados();
     }
     public void mostraJogadasExecutadas() {
-        System.out.println("Jogadas executadas por " + nome + ": " + jogadasExecutadas);
+        System.out.println("Jogadas executadas por " + nome + ": ");
+        General.mostraJogadas();
     }
 }
