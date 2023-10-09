@@ -6,9 +6,12 @@ import java.util.Iterator;
 public class usaCampeonato {
     private String tipoJogador;
     private String nome;
+    private Campeonato campeonato;
+
 
     public void menu() {
         char opcao;
+        this.campeonato = campeonato;
 
         do {
             System.out.println("                > Menu: ");
@@ -48,7 +51,7 @@ public class usaCampeonato {
                     else {
                         Syetem.out.println("Opção inválida. Tente novamente.");
                     }
-                    adicionadoJogador(nome, tipoJogador);
+                    campeonato.adicionadoJogador(nome, tipoJogador);
                     System.out.print("Deseja Inserir um novo Jogador(s/n): ");
                     System.out.flush();
                 } while (opcao == 's');
@@ -56,19 +59,19 @@ public class usaCampeonato {
                 case 'r':
                     System.out.println("Qual Jogador deseja remover: ");
                     nome = opcao.next();
-                    removerJogador(nome);
+                    campeonato.removerJogador(nome);
                     break;
                 case 'i':
-                    iniciarCampeonato();
+                    campeonato.iniciarCampeonato();
                     break;
                 case 'm':
-                    mostrarCartela();
+                    campeonato.mostrarCartela();
                     break;
                 case 'g':
-                    gravarEmArquivo();
+                    campeonato.gravarEmArquivo();
                     break;
                 case 'd':
-                    lerDoArquivo();
+                    campeonato.lerDoArquivo();
                     break;
                 case 's':
                     System.out.println("Saindo do jogo. Até mais!");
