@@ -35,38 +35,23 @@ public class usaCampeonato {
             
             switch (opcao) {
                 case 'a':    
-                do {    
-
                     Scanner entrada = new Scanner (System.in);
-                    System.out.print("Nome: ");
-                    nome = entrada.next();
-                    System.out.print("Tipo: ");
-                    tipoJogador = entrada.next();
-                    Jogador jogador = new Jogador(nome,tipoJogador);
+
                     System.out.print("Tipo de Jogador Humano ou Maquina(H/m): ");
-                    opcao = entrada.next().charAt(0);
-            
-                    if(opcao == 'm' || opcao == 'M'){
-                        tipoJogador = "Maquina";
-                        //this.tipoJogador = tipoJogador;
-                        nome = "Bob-bot";
-                        //this.nome = nome;
-                    }
-            
-                    else if(opcao == 'h' || opcao == 'H'){
+                    tipoJogador = entrada.next();
+                    System.out.print("Nome do jogador: ");
+                    nome = entrada.next();
+                    if(tipoJogador == "H" || tipoJogador == "h"){
                         tipoJogador = "Humano";
-                        //this.tipoJogador = tipoJogador;
-                        System.out.print("Nome do Jogador: ");
-                        nome = entrada.next();
-                        //this.nome = nome;
-                        } 
-                    else {
-                        System.out.println("Opção inválida. Tente novamente.");
                     }
+                    else if(tipoJogador == "M" || tipoJogador == "m"){
+                        tipoJogador = "Maquina";
+                        nome = nome+"-bot";
+                    }
+                    Jogador jogador = new Jogador(nome,tipoJogador);
+
                     jogo.adicionarJogador(jogador);
-                    System.out.print("Deseja Inserir um novo Jogador(s/n): ");
-                    
-                } while (opcao == 's');
+
                     break;
                 case 'r':
                     Scanner name = new Scanner(System.in);
@@ -87,6 +72,18 @@ public class usaCampeonato {
                     //campeonato.lerDoArquivo();
                     break;
                 case 's':
+                    String sistemaOperacional = System.getProperty("os.name").toLowerCase();
+                    try {
+                        if (sistemaOperacional.contains("win")) {
+                            // Para Windows
+                            new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+                        } else {
+                            // Para Unix (Linux, macOS)
+                            new ProcessBuilder("clear").inheritIO().start().waitFor();
+                        }
+                    } catch (Exception e) {
+                        System.out.println("Erro ao limpar o terminal: " + e.getMessage());
+                    }
                     System.out.println("Saindo do jogo. Até mais!");
                     break;
                 default:
