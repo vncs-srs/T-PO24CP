@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.Iterator;
+import java.util.Scanner;
 
 public class Campeonato {
     private Jogador[] jogadores;
@@ -44,6 +45,8 @@ public class Campeonato {
 
     public void iniciarCampeonato(){
         int rodadas = 13; 
+        int entrada;
+        Scanner decisao = new Scanner(System.in);
         for (int i = 0; i < rodadas; i++) {
             System.out.println("\nRodada " + (i + 1) + ":");
             for (Jogador jogador : jogadores) 
@@ -52,6 +55,9 @@ public class Campeonato {
                 {
                     System.out.println("\nJogador " + jogador.getNome() + " (" + jogador.getTipo() + ")");
                     jogador.jogarDados();
+                    entrada = decisao.nextInt();
+                    //pedir o valor da entrada bem como pular uma linha
+                    jogador.validarJogada(entrada);
                     jogador.mostraJogadasExecutadas();
                 }
                 
