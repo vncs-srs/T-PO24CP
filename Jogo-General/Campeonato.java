@@ -55,6 +55,8 @@ public class Campeonato {
                 {
                     System.out.println("\nJogador " + jogador.getNome() + " (" + jogador.getTipo() + ")");
                     jogador.jogarDados();
+                    System.out.print("\n>para qual jogada deseja marcar: [1 - 13]\n1 2 3 4 5 6 7(T) 8(Q) 9(F) 10(S-) 11(S+) 12(G) 13(X)\n");
+
                     entrada = decisao.nextInt();
                     //pedir o valor da entrada bem como pular uma linha
                     jogador.validarJogada(entrada);
