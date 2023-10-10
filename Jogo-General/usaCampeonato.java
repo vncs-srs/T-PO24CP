@@ -1,7 +1,8 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.Scanner;
-import java.util.Iterator;
+//import java.util.Iterator;
 
 public class usaCampeonato {
 
@@ -63,7 +64,7 @@ public class usaCampeonato {
                     }
                     jogo.adicionarJogador(jogador);
                     System.out.print("Deseja Inserir um novo Jogador(s/n): ");
-                    System.out.flush();
+                    
                 } while (opcao == 's');
                     break;
                 case 'r':
@@ -91,20 +92,34 @@ public class usaCampeonato {
                     System.out.println("Opção inválida. Tente novamente.");
                     break;
             }
-            System.out.flush();
+           /*  String sistemaOperacional = System.getProperty("os.name").toLowerCase();
+            try {
+                if (sistemaOperacional.contains("win")) {
+                    // Para Windows
+                    new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+                } else {
+                    // Para Unix (Linux, macOS)
+                    new ProcessBuilder("clear").inheritIO().start().waitFor();
+                }
+            } catch (Exception e) {
+                System.out.println("Erro ao limpar o terminal: " + e.getMessage());
+            }*/
         } while (opcao != 's');
     }
 
     public static void main(String[] args) {
         Campeonato jogo = new Campeonato();
 
-        /*String arquivo = "jogogeneralASCII.txt";
-        try (BufferedReader br = new BufferedReader(new FileReader(arquivo))) {
+        String nomeArquivo = "jogogeneralASCII.txt";
+
+        try (BufferedReader br = new BufferedReader(new FileReader(nomeArquivo))) {
             String linha;
             while ((linha = br.readLine()) != null) {
                 System.out.println(linha);
             }
-        }*/
+        } catch (IOException e) {
+            System.err.println("Erro ao ler o arquivo: " + e.getMessage());
+        }
         menu(jogo);
     }
 }
