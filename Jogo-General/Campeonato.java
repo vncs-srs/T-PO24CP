@@ -1,5 +1,10 @@
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.FileReader;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.Iterator;
 
 public class Campeonato {
@@ -48,19 +53,60 @@ public class Campeonato {
             }
         }
     }
-    public void mostrarCartela(){
+    public void mostrarCartela()
+    {
+        int i;
+        for(i=0;i<10;i++)
+        {
+            //jogadores[i];
+        }
 
     }
-    public void gravarEmArquivo(){
-        
-    }
-    /*public void lerDoArquivo(){
-        String arquivo = "Resulados.txt";
-        try (BufferedReader br = new BufferedReader(new FileReader(arquivo))) {
-           String linha;
-                while ((linha = br.readLine()) != null) {
-                System.out.println(linha);
-            }
+    public void gravarEmArquivo()
+    {
+        /*Gravar em arquivo*/
+        File arquivo = new File("Placar.dat");
+        try 
+        {
+            FileOutputStream fout = new FileOutputStream(arquivo);
+            ObjectOutputStream oos = new ObjectOutputStream(fout);
+            // gravando o vetor de pessoas no arquivo
+            oos.writeObject(jogadores);
+            oos.flush();
+            oos.close();
+            fout.close();
         }
-    }*/
+        catch (Exception ex) {
+            System.err.println("erro: " + ex.toString());
+        }    
+    }
+    public void lerDoArquivo(){
+        File arquivo = new File("Placar.dat");
+  
+        try 
+        {
+            FileInputStream fin = new FileInputStream(arquivo);
+            ObjectInputStream oin = new ObjectInputStream(fin);
+            /*Lendo os objetos de um arquivo e fazendo a
+            coercao de tipos*/
+            
+            Jogador[] JogadasArq = (Jogador[]) oin.readObject();
+            oin.close();
+            fin.close();
+            
+            //Uma forma de diferente do for para percorrer vetores
+            //isso provavelmente nao vai dar certo
+            for (Jogador j : JogadasArq) 
+        {
+            j.getNome();
+            j.getTipo();
+            j.mostraJogadasExecutadas();
+        }
+
+        }
+        catch (Exception ex) 
+        {
+            System.err.println("erro: " + ex.toString());
+        }
+    }
 }
