@@ -1,4 +1,7 @@
-public class Jogador {
+import java.io.Serializable;
+
+public class Jogador implements Serializable{
+
     private String nome;
     private String tipo;
     private JogoGeneral General ;
@@ -29,7 +32,7 @@ public class Jogador {
         General.mostraValorDados();
     }
     public void mostraJogadasExecutadas() {
-        System.out.println("Jogadas executadas por " + nome + ": ");
+        System.out.println("\nJogadas executadas por " + nome + ": ");
         General.mostraJogadas();
     }
 }

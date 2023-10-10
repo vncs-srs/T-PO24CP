@@ -63,7 +63,12 @@ public class Campeonato {
         int i;
         for(i=0;i<10;i++)
         {
-            //jogadores[i];
+            if(jogadores[i]!=null)
+            {
+                jogadores[i].getNome();
+                jogadores[i].getTipo();
+                jogadores[i].mostraJogadasExecutadas();
+            }
         }
 
     }
@@ -95,18 +100,18 @@ public class Campeonato {
             /*Lendo os objetos de um arquivo e fazendo a
             coercao de tipos*/
             
-            Jogador[] JogadasArq = (Jogador[]) oin.readObject();
+            jogadores = (Jogador[]) oin.readObject();
             oin.close();
             fin.close();
             
             //Uma forma de diferente do for para percorrer vetores
             //isso provavelmente nao vai dar certo
-            for (Jogador j : JogadasArq) 
-        {
-            j.getNome();
-            j.getTipo();
-            j.mostraJogadasExecutadas();
-        }
+            for (Jogador j : jogadores) 
+            {
+                j.getNome();
+                j.getTipo();
+                j.mostraJogadasExecutadas();
+            }
 
         }
         catch (Exception ex) 

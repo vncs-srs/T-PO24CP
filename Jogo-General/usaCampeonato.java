@@ -27,7 +27,7 @@ public class usaCampeonato {
             System.out.println("| (i) Iniciar Jogo                                             |");
             System.out.println("| (m) Mostrar cartela                                          |");
             System.out.println("| (g) Gravar os dados                                          |");
-            System.out.println("| (l) Ler os dados do campeonato                                      |");
+            System.out.println("| (l) Ler os dados do campeonato                               |");
             System.out.println("| (s) Sair                                                     |");
             System.out.println("|--------------------------------------------------------------|");
             System.out.print("Escolha uma opção: ");
