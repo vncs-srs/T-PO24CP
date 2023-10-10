@@ -46,7 +46,6 @@ public class Campeonato {
     public void iniciarCampeonato(){
         int rodadas = 13; 
         int entrada;
-        boolean[] valida = new boolean[13];
         Scanner decisao = new Scanner(System.in);
         for (int i = 0; i < rodadas; i++) {
             System.out.println("\nRodada " + (i + 1) + ":");
@@ -61,8 +60,8 @@ public class Campeonato {
                         entrada = decisao.nextInt();
                         jogador.validarJogada(entrada);
                         
-                    }while(valida[entrada-1] == true);
-                    valida[entrada-1] = true;
+                    }while(jogador.valida[entrada-1] == true);
+                    jogador.valida[entrada-1] = true;
                     jogador.mostraJogadasExecutadas();
                 }
                 

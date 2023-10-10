@@ -5,11 +5,13 @@ public class Jogador implements Serializable{
     private String nome;
     private String tipo;
     private JogoGeneral General ;
+    public boolean[] valida;
 
     public Jogador(String nome, String tipo) {
         this.nome = nome;
         this.tipo = tipo;
         this.General = new JogoGeneral();
+        this.valida = new boolean[13] ;
     }
     public void validarJogada(int escolha)
     {
