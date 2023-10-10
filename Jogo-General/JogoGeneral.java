@@ -1,4 +1,6 @@
-public class JogoGeneral {
+import java.io.Serializable;
+
+public class JogoGeneral implements Serializable{
 
     
     private Dado[] dados;
@@ -67,9 +69,6 @@ public class JogoGeneral {
     //mudar para o objeto jogador
     public void validarJogada(int escolha)
     {
-        dados = new Dado[5];
-        jogadas = new int [13];
-
         switch (escolha){
             case 1:
                 Jogada_de_1();
