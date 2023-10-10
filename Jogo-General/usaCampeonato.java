@@ -69,7 +69,7 @@ public class usaCampeonato {
                     jogo.gravarEmArquivo();
                     break;
                 case 'd':
-                    //campeonato.lerDoArquivo();
+                    jogo.lerDoArquivo();
                     break;
                 case 's':
                     String sistemaOperacional = System.getProperty("os.name").toLowerCase();
