@@ -100,7 +100,7 @@ public class Campeonato {
     }
     public void lerDoArquivo(){
         File arquivo = new File("Placar.dat");
-  
+
         try 
         {
             FileInputStream fin = new FileInputStream(arquivo);
@@ -122,9 +122,9 @@ public class Campeonato {
             }
 
         }
-        catch (Exception ex) 
+        catch (Exception e) 
         {
-            System.err.println("erro: " + ex.toString());
+            System.err.println("Erro ao ler o arquivo!" + e.getMessage());
         }
     }
 }
