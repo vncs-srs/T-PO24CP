@@ -67,54 +67,7 @@ public class JogoGeneral implements Serializable{
         }
     }
     //mudar para o objeto jogador
-    public void validarJogada(int escolha)
-    {
-        switch (escolha){
-            case 1:
-                Jogada_de_1();
-                break;
-            case 2:
-                Jogada_de_2();
-                break;
-            case 3:
-                Jogada_de_3();
-                break;
-            case 4:
-                Jogada_de_4();
-                break;
-            case 5:
-                Jogada_de_5();
-                break;
-            case 6:
-                Jogada_de_6();
-                break;
-            case 7:
-                Trinca();
-                break;
-            case 8:
-                Quadra();
-                break;
-            case 9:
-                FullHand();
-                break;
-            case 10:
-                Sequencia_alta();
-                break;
-            case 11:
-                Sequencia_baixa();
-                break;
-            case 12:
-                General();
-                break;
-            case 13:
-                Jogada_aleatoria();
-                break;
-            default:
-                System.out.println("Opcao invalida. Tente novamente");
-                break;
-        }
-        
-    }
+    
     public void Jogada_de_1 ()
     {
         int i, pontos=0;
