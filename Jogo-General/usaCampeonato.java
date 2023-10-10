@@ -2,9 +2,10 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
-//import java.util.Iterator;
 
 public class usaCampeonato {
+    public static final String RESET = "\u001B[0m";
+    public static final String GREEN = "\u001B[32m";
 
     //private Campeonato campeonato;
     //private Jogador jogador;
@@ -115,7 +116,7 @@ public class usaCampeonato {
         try (BufferedReader br = new BufferedReader(new FileReader(nomeArquivo))) {
             String linha;
             while ((linha = br.readLine()) != null) {
-                System.out.println(linha);
+                System.out.println(GREEN+linha+RESET);
             }
         } catch (IOException e) {
             System.err.println("Erro ao ler o arquivo: " + e.getMessage());
