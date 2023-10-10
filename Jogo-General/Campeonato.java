@@ -62,7 +62,7 @@ public class Campeonato {
                 }
                 
             }
-        }
+        }        
     }
     public void mostrarCartela()
     {
