@@ -46,10 +46,15 @@ public class Campeonato {
         int rodadas = 13; 
         for (int i = 0; i < rodadas; i++) {
             System.out.println("\nRodada " + (i + 1) + ":");
-            for (Jogador jogador : jogadores) {
-                System.out.println("\nJogador " + jogador.getNome() + " (" + jogador.getTipo() + ")");
-                jogador.jogarDados();
-                jogador.mostraJogadasExecutadas();
+            for (Jogador jogador : jogadores) 
+            {
+                if(jogador!=null)
+                {
+                    System.out.println("\nJogador " + jogador.getNome() + " (" + jogador.getTipo() + ")");
+                    jogador.jogarDados();
+                    jogador.mostraJogadasExecutadas();
+                }
+                
             }
         }
     }
