@@ -11,6 +11,7 @@ public class Jogador implements Serializable{
         this.tipo = tipo;
         this.General = new JogoGeneral();
     }
+    //Valida as Jogadas feitas pelo Jogador.
     public void validarJogada(int escolha)
     {
         switch (escolha){
@@ -68,17 +69,13 @@ public class Jogador implements Serializable{
         return tipo;
     }
 
-    public String toString() {
-        return "Jogador{" +
-                "nome='" + nome + '\'' +
-                ", tipo='" + tipo + '\'' +
-                '}';
-    }
+    //Rola os dados e mostra os valores obtidos
     public void jogarDados() { 
         General.rolarDados();
         System.out.println("Jogador " + nome + " jogou o dado e obteve: " );
         General.mostraValorDados();
     }
+    //Mostra as jogadas execultadas pelo jogador
     public void mostraJogadasExecutadas() {
         System.out.println("\nJogadas executadas por " + nome + ": ");
         General.mostraJogadas();

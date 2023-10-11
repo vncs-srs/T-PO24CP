@@ -7,17 +7,26 @@ public class usaCampeonato {
     public static final String RESET = "\u001B[0m";
     public static final String GREEN = "\u001B[32m";
 
-    //private Campeonato campeonato;
-    //private Jogador jogador;
-
-
+    //Funcao para limpar o terminal quando chamado.
+    public static void limpaTerminal(){
+        String sistemaOperacional = System.getProperty("os.name").toLowerCase();
+        try {
+            if (sistemaOperacional.contains("win")) {
+                // Para Windows
+                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+            } else {
+                // Para Unix (Linux, macOS)
+                new ProcessBuilder("clear").inheritIO().start().waitFor();
+            }
+        } catch (Exception e) {
+            System.out.println("Erro ao limpar o terminal: " + e.getMessage());
+        }
+    }
     public static void menu(Campeonato jogo) {
         String tipoJogador;
         String nome;
         char opcao;
             Scanner menu = new Scanner (System.in);
-
-        //this.campeonato = campeonato;
 
         do {
             System.out.println("                > Menu: ");
@@ -49,7 +58,7 @@ public class usaCampeonato {
                         nome = nome+"-bot";
                     }
                     Jogador jogador = new Jogador(nome,tipoJogador);
-
+                    limpaTerminal();
                     jogo.adicionarJogador(jogador);
 
                     break;
@@ -57,59 +66,43 @@ public class usaCampeonato {
                     Scanner name = new Scanner(System.in);
                     System.out.println("Qual Jogador deseja remover: ");
                     nome = name.next();
+                    limpaTerminal();
                     jogo.removerJogador(nome);
                     break;
                 case 'i':
+                    limpaTerminal();
                     jogo.iniciarCampeonato();
                     break;
                 case 'm':
+                    limpaTerminal();
                     jogo.mostrarCartela();
                     break;
                 case 'g':
+                    limpaTerminal();
                     jogo.gravarEmArquivo();
                     break;
                 case 'l':
+                    limpaTerminal();
                     jogo.lerDoArquivo();
                     break;
                 case 's':
-                    String sistemaOperacional = System.getProperty("os.name").toLowerCase();
-                    try {
-                        if (sistemaOperacional.contains("win")) {
-                            // Para Windows
-                            new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-                        } else {
-                            // Para Unix (Linux, macOS)
-                            new ProcessBuilder("clear").inheritIO().start().waitFor();
-                        }
-                    } catch (Exception e) {
-                        System.out.println("Erro ao limpar o terminal: " + e.getMessage());
-                    }
+                    limpaTerminal();
                     System.out.println("Saindo do jogo. Até mais!");
                     break;
                 default:
+                limpaTerminal();
                     System.out.println("Opção inválida. Tente novamente.");
                     break;
             }
-           /*  String sistemaOperacional = System.getProperty("os.name").toLowerCase();
-            try {
-                if (sistemaOperacional.contains("win")) {
-                    // Para Windows
-                    new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-                } else {
-                    // Para Unix (Linux, macOS)
-                    new ProcessBuilder("clear").inheritIO().start().waitFor();
-                }
-            } catch (Exception e) {
-                System.out.println("Erro ao limpar o terminal: " + e.getMessage());
-            }*/
+
         } while (opcao != 's');
     }
 
     public static void main(String[] args) {
         Campeonato jogo = new Campeonato();
 
+        //Mostra Escrito na tela JogoGeneal
         String nomeArquivo = "jogogeneralASCII.txt";
-
         try (BufferedReader br = new BufferedReader(new FileReader(nomeArquivo))) {
             String linha;
             while ((linha = br.readLine()) != null) {
@@ -118,6 +111,7 @@ public class usaCampeonato {
         } catch (IOException e) {
             System.err.println("Erro ao ler o arquivo: " + e.getMessage());
         }
+        
         menu(jogo);
     }
 }
