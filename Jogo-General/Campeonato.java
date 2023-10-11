@@ -47,6 +47,8 @@ public class Campeonato {
     //Inicia o Jogo
     public void iniciarCampeonato(){
         int rodadas = 13; 
+        int entrada=0;
+        String verificaTipo;
         int entrada;
         String verificaTipo;
         Scanner decisao = new Scanner(System.in);
@@ -100,7 +102,7 @@ public class Campeonato {
             {
                 jogadores[i].getNome();
                 jogadores[i].getTipo();
-                jogadores[i].mostraJogadasExecutadas();
+                jogadores[i].salvaPontos();
             }
         }
 
