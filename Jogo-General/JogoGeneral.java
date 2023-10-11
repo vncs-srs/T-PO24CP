@@ -239,11 +239,11 @@ public class JogoGeneral implements Serializable{
                     }
                 } 
             }
-            if (acumulador<=2)
+            if (acumulador>=3)
             {
                 for(i=0;i<5;i++)
                 {
-                    pontos = dados[i].getSideUp();
+                    pontos = pontos +dados[i].getSideUp();
                 }
                 jogadas[6]= pontos;
             }
@@ -273,11 +273,11 @@ public class JogoGeneral implements Serializable{
                     }
                 } 
             }
-            if (acumulador<=3)
+            if (acumulador>=4)
             {
                 for(i=0;i<5;i++)
                 {
-                    pontos = dados[i].getSideUp();
+                    pontos = pontos+ dados[i].getSideUp();
                 }
                 jogadas[7]= pontos;
             }
@@ -477,6 +477,20 @@ public class JogoGeneral implements Serializable{
             System.out.println("Opcao invalida. Tente novamente");
         }
     }
+    public int somaPontos(int gravarResultadosAqui)
+    {
+        int i ,resultados=0;
+        for(i=0;i<13;i++)
+        {
+            if(jogadas[i]!=-1)
+            { 
+                resultados = resultados + jogadas[i];
+            }
+        }
+        gravarResultadosAqui = resultados;
+        return gravarResultadosAqui;
+    }
+
     public String toString()
     {
         StringBuilder result = new StringBuilder();

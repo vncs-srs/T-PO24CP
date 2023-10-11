@@ -45,7 +45,8 @@ public class Campeonato {
 
     public void iniciarCampeonato(){
         int rodadas = 13; 
-        int entrada;
+        int entrada=0;
+        String verificaTipo;
         Scanner decisao = new Scanner(System.in);
         for (int i = 0; i < rodadas; i++) {
             System.out.println("\nRodada " + (i + 1) + ":");
@@ -56,11 +57,17 @@ public class Campeonato {
                     System.out.println("\nJogador " + jogador.getNome() + " (" + jogador.getTipo() + ")");
                     jogador.jogarDados();
                     System.out.print("\n>para qual jogada deseja marcar: [1 - 13]\n1 2 3 4 5 6 7(T) 8(Q) 9(F) 10(S-) 11(S+) 12(G) 13(X)\n");
-                    do{
-                        entrada = decisao.nextInt();
-                        jogador.validarJogada(entrada);
-                        
-                    }while(jogador.valida[entrada-1] == true);
+                    verificaTipo= jogador.getTipo();
+                    if(verificaTipo!="m"){
+                        do{
+                            
+
+                            entrada = decisao.nextInt();
+                            jogador.validarJogada(entrada);
+                            
+                        }while(jogador.valida[entrada-1] == true);
+                    
+                    }
                     jogador.valida[entrada-1] = true;
                     jogador.mostraJogadasExecutadas();
                 }
@@ -77,7 +84,7 @@ public class Campeonato {
             {
                 jogadores[i].getNome();
                 jogadores[i].getTipo();
-                jogadores[i].mostraJogadasExecutadas();
+                jogadores[i].salvaPontos();
             }
         }
 

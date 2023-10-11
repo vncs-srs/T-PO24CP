@@ -6,12 +6,14 @@ public class Jogador implements Serializable{
     private String tipo;
     private JogoGeneral General ;
     public boolean[] valida;
+    private int pontos;
 
     public Jogador(String nome, String tipo) {
         this.nome = nome;
         this.tipo = tipo;
         this.General = new JogoGeneral();
         this.valida = new boolean[13] ;
+        this.pontos = pontos;
     }
     public void validarJogada(int escolha)
     {
@@ -81,8 +83,14 @@ public class Jogador implements Serializable{
         System.out.println("Jogador " + nome + " jogou o dado e obteve: " );
         General.mostraValorDados();
     }
+
     public void mostraJogadasExecutadas() {
         System.out.println("\nJogadas executadas por " + nome + ": ");
         General.mostraJogadas();
+    }
+
+    public void salvaPontos()
+    {
+        pontos = General.somaPontos(pontos);
     }
 }
