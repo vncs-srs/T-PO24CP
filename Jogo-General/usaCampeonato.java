@@ -46,12 +46,12 @@ public class usaCampeonato {
             switch (opcao) {
                 case 'a':    
                     Scanner entrada = new Scanner (System.in);
-                    //do{    
+                    do{    
                         System.out.print("Tipo de Jogador Humano ou Maquina(H/m): ");
                         tipoJogador = entrada.next();
-                        //if(tipoJogador != "H" || tipoJogador != "h" || tipoJogador != "M" || tipoJogador != "m")
-                         //   System.out.println("Opção inválida. Tente novamente.");
-                    //}while(tipoJogador != "H" || tipoJogador != "h" || tipoJogador != "M" || tipoJogador != "m");
+                        if(!(tipoJogador.equalsIgnoreCase("H") || tipoJogador.equalsIgnoreCase("M")))
+                            System.out.println("Opção inválida. Tente novamente.");
+                    }while(!(tipoJogador.equalsIgnoreCase("H") || tipoJogador.equalsIgnoreCase("M")));
                     
                     System.out.print("Nome do jogador: ");
                     nome = entrada.next();
