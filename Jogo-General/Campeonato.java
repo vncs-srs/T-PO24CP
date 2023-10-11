@@ -48,23 +48,42 @@ public class Campeonato {
     public void iniciarCampeonato(){
         int rodadas = 13; 
         int entrada;
+        String verificaTipo;
         Scanner decisao = new Scanner(System.in);
         for (int i = 0; i < rodadas; i++) {
             System.out.println("\nRodada " + (i + 1) + ":");
             for (Jogador jogador : jogadores) 
             {
+                
+
                 if(jogador!=null)
                 {
-                    System.out.println("\nJogador " + jogador.getNome() + " (" + jogador.getTipo() + ")");
-                    jogador.jogarDados();
-                    System.out.print("\n>para qual jogada deseja marcar: [1 - 13]\n1 2 3 4 5 6 7(T) 8(Q) 9(F) 10(S-) 11(S+) 12(G) 13(X)\n");
-                    do{
-                        entrada = decisao.nextInt();
-                        jogador.validarJogada(entrada);
-                        
-                    }while(jogador.valida[entrada-1] == true);
-                    jogador.valida[entrada-1] = true;
-                    jogador.mostraJogadasExecutadas();
+                    verificaTipo = jogador.getTipo();
+                    if(verificaTipo == "m");{
+                        System.out.println("\nJogador " + jogador.getNome() + " (" + jogador.getTipo() + ")");
+                        jogador.jogarDados();
+                        System.out.print("\nDEU CERRTO para qual jogada deseja marcar: [1 - 13]\n1 2 3 4 5 6 7(T) 8(Q) 9(F) 10(S-) 11(S+) 12(G) 13(X)\n");
+                        do{
+                            entrada = decisao.nextInt();
+                            jogador.validarJogada(entrada);
+                            
+                        }while(jogador.valida[entrada-1] == true);
+                        jogador.valida[entrada-1] = true;
+                        jogador.mostraJogadasExecutadas();
+                    }
+                    if(verificaTipo == "h"){
+                        System.out.println("\nJogador " + jogador.getNome() + " (" + jogador.getTipo() + ")");
+                        jogador.jogarDados();
+                        System.out.print("\n>para qual jogada deseja marcar: [1 - 13]\n1 2 3 4 5 6 7(T) 8(Q) 9(F) 10(S-) 11(S+) 12(G) 13(X)\n");
+                        do{
+                            entrada = decisao.nextInt();
+                            jogador.validarJogada(entrada);
+                            
+                        }while(jogador.valida[entrada-1] == true);
+                        jogador.valida[entrada-1] = true;
+                        jogador.mostraJogadasExecutadas();
+
+                    }
                 }
                 
             }
