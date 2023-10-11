@@ -17,6 +17,7 @@ public class Campeonato {
         this.jogadores = new Jogador[maxJogadores];
         this.quantidadeJogadores = 0;
     }
+    //Adiciona os Jogadores e verifica se nao estrapolou o limite permitido
     public void adicionarJogador(Jogador jogador) {
         if (quantidadeJogadores < jogadores.length) {
             jogadores[quantidadeJogadores] = jogador;
@@ -27,6 +28,7 @@ public class Campeonato {
         }
         return;
     }
+    //Remove os jogadores pelo nome
     public void removerJogador(String nome) {
         for (int i = 0; i < quantidadeJogadores; i++) {
             if (jogadores[i].getNome().equals(nome)) {
@@ -42,32 +44,30 @@ public class Campeonato {
         System.out.println("Jogador " + nome + " não encontrado.");
     }
 
-
+    //Inicia o Jogo
     public void iniciarCampeonato(){
         int rodadas = 13; 
         int entrada=0;
+        String verificaTipo;
+        int entrada;
         String verificaTipo;
         Scanner decisao = new Scanner(System.in);
         for (int i = 0; i < rodadas; i++) {
             System.out.println("\nRodada " + (i + 1) + ":");
             for (Jogador jogador : jogadores) 
             {
+                
+
                 if(jogador!=null)
                 {
                     System.out.println("\nJogador " + jogador.getNome() + " (" + jogador.getTipo() + ")");
                     jogador.jogarDados();
                     System.out.print("\n>para qual jogada deseja marcar: [1 - 13]\n1 2 3 4 5 6 7(T) 8(Q) 9(F) 10(S-) 11(S+) 12(G) 13(X)\n");
-                    verificaTipo= jogador.getTipo();
-                    if(verificaTipo!="m"){
-                        do{
-                            
-
-                            entrada = decisao.nextInt();
-                            jogador.validarJogada(entrada);
-                            
-                        }while(jogador.valida[entrada-1] == true);
-                    
-                    }
+                    do{
+                        entrada = decisao.nextInt();
+                        jogador.validarJogada(entrada);
+                        
+                    }while(jogador.valida[entrada-1] == true);
                     jogador.valida[entrada-1] = true;
                     jogador.mostraJogadasExecutadas();
                 }
@@ -75,6 +75,7 @@ public class Campeonato {
             }
         }        
     }
+    //Mostra a cartela de resultados
     public void mostrarCartela()
     {
         int i;
@@ -89,6 +90,7 @@ public class Campeonato {
         }
 
     }
+    //Grava os dados do jogo em arquivo. 
     public void gravarEmArquivo()
     {
         /*Gravar em arquivo*/
@@ -106,7 +108,9 @@ public class Campeonato {
         catch (Exception ex) {
             System.err.println("erro: " + ex.toString());
         }    
+        System.out.println("Arquivo gravado em Placar.dat.");
     }
+    //ler o arquivo gravado
     public void lerDoArquivo(){
         File arquivo = new File("Placar.dat");
 

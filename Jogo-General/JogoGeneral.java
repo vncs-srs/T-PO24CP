@@ -66,8 +66,7 @@ public class JogoGeneral implements Serializable{
             dados[i]=new Dado();
         }
     }
-    //mudar para o objeto jogador
-    
+    //Jogada de 1: um certo n ́umero de dados (de 0 a 5) marcando o numero 1.
     public void Jogada_de_1 ()
     {
         int i, pontos=0;
@@ -94,6 +93,7 @@ public class JogoGeneral implements Serializable{
             System.out.println("Opcao invalida. Tente novamente");
         }
     }
+    //Jogadas de 2, 3, 4, 5 e 6: correspondentes a jogada de 1 para os demais numeros.
     public void Jogada_de_2 ()
     {
         int i, pontos=0;
@@ -509,5 +509,5 @@ public class JogoGeneral implements Serializable{
             }
         }
         return ">para qual jogada deseja marcar: [1 - 13]\n1\t2\t3\t4\t5\t6\t7(T)\t8(Q)\t9(F)\t10(S-)\t11(S+)\t12(G)\t13(X)\n" + result.toString();
-    }
+    }*/
 }
