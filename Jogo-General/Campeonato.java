@@ -49,8 +49,6 @@ public class Campeonato {
         int rodadas = 13; 
         int entrada=0;
         String verificaTipo;
-        int entrada;
-        String verificaTipo;
         Scanner decisao = new Scanner(System.in);
         for (int i = 0; i < rodadas; i++) {
             System.out.println("\nRodada " + (i + 1) + ":");
