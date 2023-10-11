@@ -1,4 +1,5 @@
 import java.io.Serializable;
+import java.util.Random;
 
 public class Jogador implements Serializable{
 
@@ -70,6 +71,29 @@ public class Jogador implements Serializable{
     public String getTipo() {
         return tipo;
     }
+    
+    public int maquina() {
+        int min = 1;
+        int max = 13;
+        int quantidadeNumeros = max - min + 1;
+        
+        boolean[] numerosGerados = new boolean[quantidadeNumeros];
+        Random random = new Random();
+        
+        int numerosRestantes = quantidadeNumeros;
+
+        while (numerosRestantes > 0) {
+            int numeroAleatorio = random.nextInt(quantidadeNumeros);
+
+            if (!numerosGerados[numeroAleatorio]) {
+                numerosGerados[numeroAleatorio] = true;
+                numerosRestantes--;
+                return numeroAleatorio+1;
+            }
+        }
+        return 0;
+    }
+
 
     //Rola os dados e mostra os valores obtidos
     public void jogarDados() { 

@@ -62,9 +62,10 @@ public class Campeonato {
                     if(verificaTipo == "m");{
                         System.out.println("\nJogador " + jogador.getNome() + " (" + jogador.getTipo() + ")");
                         jogador.jogarDados();
-                        System.out.print("\nDEU CERRTO para qual jogada deseja marcar: [1 - 13]\n1 2 3 4 5 6 7(T) 8(Q) 9(F) 10(S-) 11(S+) 12(G) 13(X)\n");
+                        System.out.print("\nPara qual jogada deseja marcar: [1 - 13]\n1 2 3 4 5 6 7(T) 8(Q) 9(F) 10(S-) 11(S+) 12(G) 13(X)\n");
                         do{
-                            entrada = decisao.nextInt();
+                            //entrada = decisao.nextInt();
+                            entrada = jogador.maquina();
                             jogador.validarJogada(entrada);
                             
                         }while(jogador.valida[entrada-1] == true);
@@ -74,7 +75,7 @@ public class Campeonato {
                     if(verificaTipo == "h"){
                         System.out.println("\nJogador " + jogador.getNome() + " (" + jogador.getTipo() + ")");
                         jogador.jogarDados();
-                        System.out.print("\n>para qual jogada deseja marcar: [1 - 13]\n1 2 3 4 5 6 7(T) 8(Q) 9(F) 10(S-) 11(S+) 12(G) 13(X)\n");
+                        System.out.print("\n>Para qual jogada deseja marcar: [1 - 13]\n1 2 3 4 5 6 7(T) 8(Q) 9(F) 10(S-) 11(S+) 12(G) 13(X)\n");
                         do{
                             entrada = decisao.nextInt();
                             jogador.validarJogada(entrada);
