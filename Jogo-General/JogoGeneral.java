@@ -509,5 +509,5 @@ public class JogoGeneral implements Serializable{
             }
         }
         return ">para qual jogada deseja marcar: [1 - 13]\n1\t2\t3\t4\t5\t6\t7(T)\t8(Q)\t9(F)\t10(S-)\t11(S+)\t12(G)\t13(X)\n" + result.toString();
-    }*/
+    }
 }
