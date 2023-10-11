@@ -41,28 +41,20 @@ public class usaCampeonato {
             System.out.println("|--------------------------------------------------------------|");
             System.out.print("Escolha uma opção: ");
             opcao = menu.next().charAt(0);
+            limpaTerminal();
             
             switch (opcao) {
                 case 'a':    
                     Scanner entrada = new Scanner (System.in);
-                    //do{
-                        
+                    //do{    
                         System.out.print("Tipo de Jogador Humano ou Maquina(H/m): ");
                         tipoJogador = entrada.next();
-                     //   if(tipoJogador != "H" || tipoJogador != "h" || tipoJogador != "M" || tipoJogador != "m")
-                       //     System.out.println("Opção inválida. Tente novamente.");
+                        //if(tipoJogador != "H" || tipoJogador != "h" || tipoJogador != "M" || tipoJogador != "m")
+                         //   System.out.println("Opção inválida. Tente novamente.");
                     //}while(tipoJogador != "H" || tipoJogador != "h" || tipoJogador != "M" || tipoJogador != "m");
                     
                     System.out.print("Nome do jogador: ");
                     nome = entrada.next();
-                    
-                    if(tipoJogador == "H" || tipoJogador == "h"){
-                        tipoJogador = "Humano";
-                    }
-                    else if(tipoJogador == "M" || tipoJogador == "m"){
-                        tipoJogador = "Maquina";
-                        nome = nome+"-bot";
-                    }
                     Jogador jogador = new Jogador(nome,tipoJogador);
                     limpaTerminal();
                     jogo.adicionarJogador(jogador);

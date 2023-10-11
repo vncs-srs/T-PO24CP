@@ -60,7 +60,8 @@ public class Jogador implements Serializable{
                 General.Jogada_aleatoria();
                 break;
             default:
-                System.out.println("Opcao invalida. Tente novamente");
+                if(tipo == "h" || tipo == "H")
+                    System.out.println("Opcao invalida. Tente novamente");
                 break;
         }
         

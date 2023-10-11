@@ -12,6 +12,9 @@ public class Campeonato {
     private Jogador[] jogadores;
     private int quantidadeJogadores;
 
+    public static final String RESET = "\u001B[0m";
+    public static final String GREEN = "\u001B[32m";
+
     public Campeonato() {
         int maxJogadores = 10;
         this.jogadores = new Jogador[maxJogadores];
@@ -22,7 +25,7 @@ public class Campeonato {
         if (quantidadeJogadores < jogadores.length) {
             jogadores[quantidadeJogadores] = jogador;
             quantidadeJogadores++;
-            System.out.println("Jogador " + jogador.getNome() + " adicionado.");
+            System.out.println("Jogador " +GREEN+ jogador.getNome() +RESET+ " adicionado.");
         } else {
             System.out.println("Não é possível adicionar mais jogadores. Limite atingido.");
         }
@@ -37,11 +40,11 @@ public class Campeonato {
                 }
                 jogadores[quantidadeJogadores - 1] = null;
                 quantidadeJogadores--;
-                System.out.println("Jogador " + nome + " removido.");
+                System.out.println("Jogador "+GREEN+ nome +RESET+ " removido.");
                 return;
             }
         }
-        System.out.println("Jogador " + nome + " não encontrado.");
+        System.out.println("Jogador " +GREEN+ nome +RESET+ " não encontrado.");
     }
 
     //Inicia o Jogo
@@ -56,11 +59,10 @@ public class Campeonato {
             { 
                 entrada = 0;
                 if(jogador!=null)
-
                 {
                     switch(jogador.getTipo()){
                     case "h":
-                        System.out.println("\nJogador " + jogador.getNome() + " (" + jogador.getTipo() + ")");
+                        System.out.println("\nJogador " + jogador.getNome() + " (Humano)");
                         jogador.jogarDados();
                         System.out.print("\n>Para qual jogada deseja marcar: [1 - 13]\n1 2 3 4 5 6 7(T) 8(Q) 9(F) 10(S-) 11(S+) 12(G) 13(X)\n");
                         do{
@@ -73,7 +75,7 @@ public class Campeonato {
 
                         break;
                     case "m":
-                        System.out.println("\nJogador " + jogador.getNome() + " (" + jogador.getTipo() + ")");
+                        System.out.println("\nJogador " + jogador.getNome() + " (Maquina)");
                         jogador.jogarDados();
                         System.out.print("\nPara qual jogada deseja marcar: [1 - 13]\n1 2 3 4 5 6 7(T) 8(Q) 9(F) 10(S-) 11(S+) 12(G) 13(X)\n");
                         do{
