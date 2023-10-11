@@ -69,6 +69,8 @@ public class Campeonato {
                             entrada = decisao.nextInt();
                             jogador.validarJogada(entrada);
                             
+                            if(jogador.valida[entrada-1] == true)
+                                System.out.println("Opcao invalida. Tente novamente");
                         }while(jogador.valida[entrada-1] == true);
                         jogador.valida[entrada-1] = true;
                         jogador.mostraJogadasExecutadas();
@@ -147,9 +149,15 @@ public class Campeonato {
             //isso provavelmente nao vai dar certo
             for (Jogador j : jogadores) 
             {
-                j.getNome();
-                j.getTipo();
-                j.mostraJogadasExecutadas();
+                quantidadeJogadores=0;
+                
+                if(j!=null)
+                {
+                    j.getNome();
+                    j.getTipo();
+                    j.mostraJogadasExecutadas();
+                    quantidadeJogadores++;
+                }
             }
 
         }

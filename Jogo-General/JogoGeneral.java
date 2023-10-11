@@ -88,10 +88,10 @@ public class JogoGeneral implements Serializable{
                 System.out.println("Seus valores nao sao validos pra a jogada, pontucao = 0");
             }
         }
-        else
-        {
-            System.out.println("Opcao invalida. Tente novamente");
-        }
+        //else
+        //{
+        //    System.out.println("Opcao invalida. Tente novamente");
+        //}
     }
     //Jogadas de 2, 3, 4, 5 e 6: correspondentes a jogada de 1 para os demais numeros.
     public void Jogada_de_2 ()
@@ -115,10 +115,10 @@ public class JogoGeneral implements Serializable{
                 System.out.println("Seus valores nao sao validos pra a jogada, pontucao = 0");
             }
         }
-        else
-        {
-            System.out.println("Opcao invalida. Tente novamente");
-        }
+        //else
+        //{
+        //    System.out.println("Opcao invalida. Tente novamente");
+        //}
     }
     public void Jogada_de_3 ()
     {
@@ -141,10 +141,10 @@ public class JogoGeneral implements Serializable{
                 System.out.println("Seus valores nao sao validos pra a jogada, pontucao = 0");
             }
         }
-        else
-        {
-            System.out.println("Opcao invalida. Tente novamente");
-        }
+        //else
+        //{
+         //   System.out.println("Opcao invalida. Tente novamente");
+        //}
     }
     public void Jogada_de_4 ()
     {
@@ -167,10 +167,10 @@ public class JogoGeneral implements Serializable{
                 System.out.println("Seus valores nao sao validos pra a jogada, pontucao = 0");
             }
         }
-        else
-        {
-            System.out.println("Opcao invalida. Tente novamente");
-        }
+        //else
+        //{
+         //   System.out.println("Opcao invalida. Tente novamente");
+        //}
     }
     public void Jogada_de_5 ()
     {
@@ -193,10 +193,10 @@ public class JogoGeneral implements Serializable{
                 System.out.println("Seus valores nao sao validos pra a jogada, pontucao = 0");
             }
         }
-        else
-        {
-            System.out.println("Opcao invalida. Tente novamente");
-        }
+        //else
+        //{
+        //    System.out.println("Opcao invalida. Tente novamente");
+        //}
     }
     public void Jogada_de_6 ()
     {
@@ -219,10 +219,10 @@ public class JogoGeneral implements Serializable{
                 System.out.println("Seus valores nao sao validos pra a jogada, pontucao = 0");
             }
         }
-        else
-        {
-            System.out.println("Opcao invalida. Tente novamente");
-        }
+        //else
+        //{
+        //    System.out.println("Opcao invalida. Tente novamente");
+        //}
     }
     public void Trinca()
     {
@@ -253,10 +253,10 @@ public class JogoGeneral implements Serializable{
                 System.out.println("Seus valores nao sao validos pra a jogada, pontucao = 0");
             }
         }
-        else
-        {
-            System.out.println("Opcao invalida. Tente novamente");
-        }
+        //else
+        //{
+        //    System.out.println("Opcao invalida. Tente novamente");
+        //}
     } 
     public void  Quadra()
     {
@@ -287,10 +287,10 @@ public class JogoGeneral implements Serializable{
                 System.out.println("Seus valores nao sao validos pra a jogada, pontucao = 0");
             }
         }
-        else
-        {
-            System.out.println("Opcao invalida. Tente novamente");
-        }
+        //else
+        //{
+         //   System.out.println("Opcao invalida. Tente novamente");
+        //}
     } 
     public void FullHand()
     {
@@ -332,10 +332,10 @@ public class JogoGeneral implements Serializable{
                 System.out.println("Seus valores nao sao validos pra a jogada, pontucao = 0");
             }
         }
-        else
-        {
-            System.out.println("Opcao invalida. Tente novamente");
-        }
+        //else
+       // {
+        //    System.out.println("Opcao invalida. Tente novamente");
+        //}
     }
    
     public void Sequencia_alta()
@@ -379,10 +379,10 @@ public class JogoGeneral implements Serializable{
                 System.out.println("Seus valores nao sao validos pra a jogada, pontucao = 0");
             }
         }
-        else
-        {
-            System.out.println("Opcao invalida. Tente novamente");
-        }
+        //else
+        //{
+         //   System.out.println("Opcao invalida. Tente novamente");
+        //}
     }
     public void Sequencia_baixa()
     {
@@ -425,10 +425,10 @@ public class JogoGeneral implements Serializable{
                 System.out.println("Seus valores nao sao validos pra a jogada, pontucao = 0");
             }
         }
-        else
-        {
-            System.out.println("Opcao invalida. Tente novamente");
-        }
+       // else
+       // {
+        //    System.out.println("Opcao invalida. Tente novamente");
+        //}
     }
     public void General ()
     {
@@ -454,10 +454,10 @@ public class JogoGeneral implements Serializable{
                 System.out.println("Seus valores nao sao validos pra a jogada, pontucao = 0");
             }
         }
-        else
-        {
-            System.out.println("Opcao invalida. Tente novamente");
-        }
+        //else
+       // {
+       //     System.out.println("Opcao invalida. Tente novamente");
+       // }
     } 
     
     public void Jogada_aleatoria()
