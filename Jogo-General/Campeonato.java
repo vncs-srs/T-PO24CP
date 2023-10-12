@@ -104,7 +104,6 @@ public class Campeonato {
     //Mostra a cartela de resultados
 
     public void mostrarCartela(){
-        int i;
         System.out.println("-- Cartela de Resultados --");
 
         System.out.printf("%-10s", "");
@@ -116,11 +115,8 @@ public class Campeonato {
         for (int i = 1; i <= 13; i++) {
             System.out.printf("%-10s", i);
             for (Jogador j : jogadores) {
-                //int resultado = jogador.salvaPontos();
                 if(j!=null)
                     System.out.print("x\t\t");
-                    //System.out.printf("%-8s", + j.salvaPontos());
-                i++;
             }
             System.out.println();
         }
@@ -131,8 +127,6 @@ public class Campeonato {
                 System.out.printf("\t("+jogador.salvaPontos()+")\t");
         }
         System.out.println();
-
-
     }
     //Grava os dados do jogo em arquivo. 
     public void gravarEmArquivo()
