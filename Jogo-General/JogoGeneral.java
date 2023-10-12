@@ -411,7 +411,7 @@ public class JogoGeneral implements Serializable{
             }
         }
     } 
-    
+ 
     public void Jogada_aleatoria()
     {
         int i, pontos=0;

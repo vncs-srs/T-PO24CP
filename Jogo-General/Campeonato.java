@@ -96,18 +96,36 @@ public class Campeonato {
         }        
     }
     //Mostra a cartela de resultados
-    public void mostrarCartela()
-    {
+
+    public void mostrarCartela(){
         int i;
-        for(i=0;i<10;i++)
-        {
-            if(jogadores[i]!=null)
-            {
-                jogadores[i].getNome();
-                jogadores[i].getTipo();
-                jogadores[i].salvaPontos();
-            }
+        System.out.println("-- Cartela de Resultados --");
+
+        System.out.printf("%-10s", "");
+        for (Jogador jogador : jogadores) {
+            if(jogador!=null)
+                System.out.printf("%-8s", jogador.getNome() + "(" + jogador.getTipo() + ")\t");
         }
+        System.out.println();
+        for (int i = 1; i <= 13; i++) {
+            System.out.printf("%-10s", i);
+            for (Jogador j : jogadores) {
+                //int resultado = jogador.salvaPontos();
+                if(j!=null)
+                    System.out.print("x\t\t");
+                    //System.out.printf("%-8s", + j.salvaPontos());
+                i++;
+            }
+            System.out.println();
+        }
+        System.out.println("----------------------------");
+        System.out.print("Total:");
+        for (Jogador jogador : jogadores) {
+            if(jogador!=null)
+                System.out.printf("\t("+jogador.salvaPontos()+")\t");
+        }
+        System.out.println();
+
 
     }
     //Grava os dados do jogo em arquivo. 

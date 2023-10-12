@@ -109,8 +109,10 @@ public class Jogador implements Serializable{
         General.mostraJogadas();
     }
 
-    public void salvaPontos()
+    public int salvaPontos()
     {
         pontos = General.somaPontos(pontos);
+
+        return pontos;
     }
 }
