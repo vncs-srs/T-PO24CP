@@ -15,6 +15,10 @@ public class JogoGeneral implements Serializable{
             jogadas[i]= -1;
         }
     }
+    public int retornaValor(int numeroDaJogada)
+    {
+        return jogadas[numeroDaJogada]; 
+    }
 
     public void rolarDados()
     {

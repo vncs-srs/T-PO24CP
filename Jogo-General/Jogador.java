@@ -117,6 +117,10 @@ public class Jogador implements Serializable{
     {
         General.inicializaJogadas();
     }
+    public int mostraPontosJogadaN (int N)
+    {
+        return General.retornaValor(N) ;
+    }
 
 
     //Rola os dados e mostra os valores obtidos

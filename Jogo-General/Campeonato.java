@@ -116,7 +116,7 @@ public class Campeonato {
             System.out.printf("%-10s", i);
             for (Jogador j : jogadores) {
                 if(j!=null)
-                    System.out.print("x\t\t");
+                    System.out.print(j.mostraPontosJogadaN(i-1)+"\t\t");
             }
             System.out.println();
         }
