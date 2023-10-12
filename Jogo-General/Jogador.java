@@ -6,7 +6,7 @@ public class Jogador implements Serializable{
     private String nome;
     private String tipo;
     private JogoGeneral General ;
-    public boolean[] valida;
+    private boolean[] valida;
     private int pontos;
 
     public Jogador(String nome, String tipo) {
@@ -94,6 +94,28 @@ public class Jogador implements Serializable{
             }
         }
         return 0;
+    }
+
+    public void BooleanTrue (int i)
+    {
+        valida[i] = true;
+    }
+    public void BooleanFalse (int i)
+    {
+        valida[i] = false;
+    }
+    public void resetBoolean()
+    {
+        for(int i=0;i<13;i++)
+            BooleanFalse(i);
+    }
+    public boolean verificaBoolean (int i)
+    {
+        return valida[i];
+    }
+    public void resetPontos()
+    {
+        General.inicializaJogadas();
     }
 
 

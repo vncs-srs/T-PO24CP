@@ -60,6 +60,10 @@ public class Campeonato {
                 entrada = 0;
                 if(jogador!=null)
                 {
+                    if(i==0)
+                    {
+                        jogador.resetPontos();
+                    }
                     switch(jogador.getTipo()){
                     case "h":
                         System.out.println("\nJogador " + jogador.getNome() + " (Humano)");
@@ -69,10 +73,10 @@ public class Campeonato {
                             entrada = decisao.nextInt();
                             jogador.validarJogada(entrada);
                             
-                            if(jogador.valida[entrada-1] == true)
+                            if(jogador.verificaBoolean(entrada-1)== true)
                                 System.out.println("Opcao invalida. Tente novamente");
-                        }while(jogador.valida[entrada-1] == true);
-                        jogador.valida[entrada-1] = true;
+                        }while(jogador.verificaBoolean(entrada-1) == true);
+                        jogador.BooleanTrue(entrada-1);
                         jogador.mostraJogadasExecutadas();
 
                         break;
@@ -84,16 +88,18 @@ public class Campeonato {
                             entrada = jogador.maquina();
                             jogador.validarJogada(entrada);
                             
-                        }while(jogador.valida[entrada-1] == true);
-                        jogador.valida[entrada-1] = true;
+                        }while(jogador.verificaBoolean(entrada-1) == true);
+                        jogador.BooleanTrue(entrada-1);
                         jogador.mostraJogadasExecutadas();
                         break;
                     }
+                    if(i==12)
+                    jogador.resetBoolean();
 
                 }
                 
             }
-        }        
+        } 
     }
     //Mostra a cartela de resultados
     public void mostrarCartela()
