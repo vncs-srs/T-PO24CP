@@ -166,14 +166,9 @@ public class Campeonato {
             //Uma forma de diferente do for para percorrer vetores
             //isso provavelmente nao vai dar certo
             for (Jogador j : jogadores) 
-            {
-                quantidadeJogadores=0;
-                
+            {    
                 if(j!=null)
                 {
-                    j.getNome();
-                    j.getTipo();
-                    j.mostraJogadasExecutadas();
                     quantidadeJogadores++;
                 }
             }
@@ -183,5 +178,6 @@ public class Campeonato {
         {
             System.err.println("Erro ao ler o arquivo!" + e.getMessage());
         }
+        System.out.println("Dados Restaurados.");
     }
 }
