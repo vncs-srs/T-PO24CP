@@ -108,7 +108,7 @@ public class JogoAzar implements Serializable{
     public boolean main()
     {
         boolean resultado;
-        int dados=2,i, alvo=0;
+        int dados=2,i=1, alvo=0;
         do
         {
             rolarDados(dados);
@@ -122,12 +122,27 @@ public class JogoAzar implements Serializable{
             resultado=derrota();
             if(resultado=true)
             {
-                System.out.println("eba, vc se fudeu!");
+                System.out.println("poxa, vc se fudeu!");
                 break;
             }
-            alvo=somaDados(dados);
-            //logica do alvo
-        }while();
+            if(alvo==0)
+            {
+                alvo=somaDados(dados);
+            }
+            else
+            {
+                if(somaDados(dados)==alvo)
+                {
+                    System.out.println("eba, vc venceu!");
+                    break;
+                }
+                else
+                {
+                    System.out.println("tente novamente.");   
+                }
+            }
+            
+        }while(i==1);
         return resultado;
     }
     
