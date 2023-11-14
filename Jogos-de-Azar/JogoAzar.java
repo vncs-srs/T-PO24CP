@@ -120,26 +120,23 @@ public class JogoAzar implements Serializable{
                 break;
             }
             resultado=derrota();
-            if(resultado=true)
+            if(resultado==true)
             {
-                System.out.println("poxa, vc se fudeu!");
+                System.out.println("poxa, vc perdeu!");
                 break;
+            }
+            if(somaDados(dados)==alvo)
+            {
+                System.out.println("eba, vc venceu!");
+                break;
+            }
+            else
+            {
+                System.out.println("tente novamente.");   
             }
             if(alvo==0)
             {
                 alvo=somaDados(dados);
-            }
-            else
-            {
-                if(somaDados(dados)==alvo)
-                {
-                    System.out.println("eba, vc venceu!");
-                    break;
-                }
-                else
-                {
-                    System.out.println("tente novamente.");   
-                }
             }
             
         }while(i==1);
