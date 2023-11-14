@@ -73,8 +73,8 @@ public class Jogador implements Serializable{
     public String getTipo() {
         return tipo;
     }
-    
-    public int maquina() {
+    //Remover prosteriormente
+  /*  public int maquina() {
         int min = 1;
         int max = 13;
         int quantidadeNumeros = max - min + 1;
@@ -94,7 +94,7 @@ public class Jogador implements Serializable{
             }
         }
         return 0;
-    }
+    }*/
 
     public void BooleanTrue (int i)
     {
