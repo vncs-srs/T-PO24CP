@@ -15,32 +15,7 @@ public class JogoGeneral implements Serializable{
             jogadas[i]= -1;
         }
     }
-    public int retornaValor(int numeroDaJogada)
-    {
-        return jogadas[numeroDaJogada]; 
-    }
-
-    public void rolarDados()
-    {
-        int i;
-        for(i=0;i<5;i++)
-        {   
-            dados[i].roll();
-        }
-    }
-
-    public void mostraValorDados()
-    {
-        int i;
-        for(i=0;i<5;i++)
-        {   
-            System.out.print(dados[i].getSideUp());
-            if(i!=4)
-            {
-                System.out.print(" ");
-            }
-        }
-    }
+    
     public void mostraJogadas()
     {
         int i;
@@ -89,6 +64,28 @@ public class JogoGeneral implements Serializable{
             else
             {
                 jogadas[0] = 0;
+                System.out.println("Seus valores nao sao validos pra a jogada, pontucao = 0");
+            }
+        }
+    }
+    public void Jogada_de_n (int n)
+    {
+        int i, pontos=0;
+        if( jogadas[n-1] == -1)
+        {
+            for(i=0;i<5;i++)
+            { 
+                if(dados[i].getSideUp() == n)
+                {
+                    pontos = pontos + n;
+                }
+            }
+            if (pontos>0)
+                jogadas[n-1]= pontos;
+        
+            else
+            {
+                jogadas[n-1] = 0;
                 System.out.println("Seus valores nao sao validos pra a jogada, pontucao = 0");
             }
         }
@@ -429,7 +426,7 @@ public class JogoGeneral implements Serializable{
            jogadas[12] = pontos;
         }
     }
-    public int somaPontos(int gravarResultadosAqui)
+    public int somaPontos()
     {
         int i ,resultados=0;
         for(i=0;i<13;i++)
@@ -439,8 +436,21 @@ public class JogoGeneral implements Serializable{
                 resultados = resultados + jogadas[i];
             }
         }
-        gravarResultadosAqui = resultados;
-        return gravarResultadosAqui;
+        return resultados;
     }
+    public boolean Vitoria ()
+    {
+        //lembrando que isso so pode ser usado no final;
+        boolean vitoria=false;
+        int pontos, alvo;
+        pontos=somaPontos();
+        pontos= pontos - jogadas[12];
+        alvo= jogadas[12] * 2;
+        if(pontos>alvo)
+        {
+            vitoria=true;
+        }
 
+        return vitoria;
+    }
 }

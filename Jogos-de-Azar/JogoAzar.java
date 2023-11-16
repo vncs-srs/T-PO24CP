@@ -1,22 +1,10 @@
-import java.io.Serializable;
-
-public class JogoAzar implements Serializable{
+public class JogoAzar extends JogoDados {
 
     
     private Dado[] dados;
     private int[] jogadas;
-    private boolean vitoria;
+    //private boolean vitoria;
     
-    public void inicializaJogadas()
-    {
-        int i;
-        //inicializa jogadas com -1
-        //n=13(general)
-        for(i=0;i<13;i++){
-           
-            jogadas[i]= -1;
-        }
-    }
     public int retornaValor(int numeroDaJogada)
     {
         return jogadas[numeroDaJogada]; 
@@ -105,7 +93,7 @@ public class JogoAzar implements Serializable{
         return verdade;
     }
 
-    public boolean main()
+    public boolean Vitoria ()
     {
         boolean resultado;
         int dados=2,i=1, alvo=0;
@@ -142,20 +130,4 @@ public class JogoAzar implements Serializable{
         }while(i==1);
         return resultado;
     }
-    
-    //essa tem que adaptar de forma diferente
-    public int somaPontos(int gravarResultadosAqui)
-    {
-        int i ,resultados=0;
-        for(i=0;i<13;i++)
-        {
-            if(jogadas[i]!=-1)
-            { 
-                resultados = resultados + jogadas[i];
-            }
-        }
-        gravarResultadosAqui = resultados;
-        return gravarResultadosAqui;
-    }
-
 }
