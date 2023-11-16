@@ -26,7 +26,7 @@ public class usaCampeonato {
         String tipoJogador;
         String nome;
         char opcao;
-            Scanner menu = new Scanner (System.in);
+        Scanner menu = new Scanner (System.in);
 
         do {
             System.out.println("                > Menu: ");
