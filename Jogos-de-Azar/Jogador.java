@@ -1,7 +1,7 @@
 import java.io.Serializable;
 import java.util.Random;
 
-public abstract Jogador implements Serializable{
+public abstract class Jogador implements Serializable{
 
     private String nome;
     private String tipo;
@@ -137,7 +137,7 @@ public abstract Jogador implements Serializable{
 
     public int salvaPontos()
     {
-        pontos = General.somaPontos(pontos);
+        pontos = General.somaPontos();
 
         return pontos;
     }
