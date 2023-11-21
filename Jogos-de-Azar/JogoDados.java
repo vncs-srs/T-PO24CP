@@ -1,16 +1,32 @@
 import java.io.Serializable;
 
-public abstract class JogoDados implements Serializable{
+public abstract class JogoDados implements Serializable, Estatistica{
     
     private Dado[] dados;
     private int[] jogadas;
     private float saldo; 
+    private int [] Faces;
+
+    public JogoDados()
+    {
+        this.Faces = new int[numFaces];
+    }
 
     public int retornaValor(int numeroDaJogada)
     {
         return jogadas[numeroDaJogada]; 
     }
 
+    public void somarFacesSorteadas(int n)
+    {
+        //n=5(general)  n=2(azar)
+        int i;
+        for(i=0;i<n;i++)
+        {   
+            Faces[dados[i].getSideUp()] += 1;
+        }
+        
+    }
     public void rolarDados(int n)
     {
         //n=5(general)  n=2(azar)
@@ -19,6 +35,7 @@ public abstract class JogoDados implements Serializable{
         {   
             dados[i].roll();
         }
+        somarFacesSorteadas(n);
     }
 
     public void mostraValorDados(int n)
@@ -36,4 +53,27 @@ public abstract class JogoDados implements Serializable{
     }
     
     public abstract boolean Vitoria ();
+
+    //tem que sair daqui e ir pra jogador
+    public float aposta(float dinheiro)
+    {
+        if (dinheiro != 0)
+        {
+            if (Vitoria()==true) 
+            {
+                dinheiro= dinheiro+dinheiro;
+            }
+            else
+            {
+                dinheiro=0;
+            }
+            return dinheiro;
+        }
+        else
+        {
+            System.out.println("Quantia de dinheiro insuficiente para aposta.");
+            return dinheiro;
+        }
+        
+    }
 }
