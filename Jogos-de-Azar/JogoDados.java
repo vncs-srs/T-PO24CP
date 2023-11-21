@@ -10,6 +10,7 @@ public abstract class JogoDados implements Serializable, Estatistica{
     public JogoDados()
     {
         this.Faces = new int[numFaces];
+        saldo = 100;
     }
 
     public int retornaValor(int numeroDaJogada)
@@ -55,25 +56,27 @@ public abstract class JogoDados implements Serializable, Estatistica{
     public abstract boolean Vitoria ();
 
     //tem que sair daqui e ir pra jogador
-    public float aposta(float dinheiro)
+    public void aposta(float valorApostado)
     {
-        if (dinheiro != 0)
+        if ((saldo != 0)&&(valorApostado<=saldo))
         {
             if (Vitoria()==true) 
             {
-                dinheiro= dinheiro+dinheiro;
+                saldo=saldo+valorApostado;
             }
             else
             {
-                dinheiro=0;
+                saldo = saldo- valorApostado;
             }
-            return dinheiro;
         }
         else
         {
-            System.out.println("Quantia de dinheiro insuficiente para aposta.");
-            return dinheiro;
+            System.out.println("Quantia de dinheiro invalida para aposta.");
         }
-        
+    }
+
+    public float getSaldo()
+    {
+        return saldo;
     }
 }
