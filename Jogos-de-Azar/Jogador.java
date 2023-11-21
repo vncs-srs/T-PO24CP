@@ -6,6 +6,7 @@ public abstract class Jogador implements Serializable{
     private String nome;
     private String tipo;
     private JogoGeneral General ;
+    private JogoDados Jogo;
     private boolean[] valida;
     private int pontos;
 
@@ -124,10 +125,10 @@ public abstract class Jogador implements Serializable{
 
 
     //Rola os dados e mostra os valores obtidos
-    public void jogarDados() { 
-        General.rolarDados();
+    public void jogarDados(int n) { 
+        Jogo.rolarDados(n);
         System.out.println("Jogador " + nome + " jogou o dado e obteve: " );
-        General.mostraValorDados();
+        Jogo.mostraValorDados(n);
     }
     //Mostra as jogadas execultadas pelo jogador
     public void mostraJogadasExecutadas() {
