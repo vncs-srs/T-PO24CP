@@ -1,6 +1,6 @@
 public interface InterfaceJogarComoHumano{
 
     public void escolherJogo();
-    public void escolherJogada();
+    public void escolherJogada(int opcao);
     
 }

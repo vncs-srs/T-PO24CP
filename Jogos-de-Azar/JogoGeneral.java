@@ -1,8 +1,5 @@
-import java.io.Serializable;
+public class JogoGeneral extends JogoDados{
 
-public class JogoGeneral implements Serializable{
-
-    
     private Dado[] dados;
     private int[] jogadas;
     

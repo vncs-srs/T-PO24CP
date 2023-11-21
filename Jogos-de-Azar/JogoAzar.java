@@ -1,6 +1,5 @@
 public class JogoAzar extends JogoDados {
-
-    
+  
     private Dado[] dados;
     private int[] jogadas;
     //private boolean vitoria;

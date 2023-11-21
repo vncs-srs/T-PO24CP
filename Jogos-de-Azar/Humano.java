@@ -8,7 +8,7 @@ public class Humano extends Jogador implements InterfaceJogarComoHumano {
     private int opcao;
     private String menu;
     private JogoGeneral General;
-
+    //mudar as nomes, tem muita coisa duplicada. Captalizar a primeira letra eh uma solucao simples
     public void(String cpf,String agencia,String conta,int numeroBanco){
         this.cpf = cpf;
         this.agencia = agencia;
@@ -16,7 +16,13 @@ public class Humano extends Jogador implements InterfaceJogarComoHumano {
         this.numeroBanco = numeroBanco;
         //this.General = new JogoGeneral();
     }
-    public escolherJogo(){
+
+    //finalizar esse construtor
+    public Humano()
+    {
+
+    }
+    public void escolherJogo(){
 
         Scanner menu = new Scanner (System.in);
 
@@ -29,9 +35,9 @@ public class Humano extends Jogador implements InterfaceJogarComoHumano {
         opcao = menu.next().int(0);
         escolherJogada(opcao);
     }
-    public escolherJogada(int opcao){
+    public void escolherJogada(int opcao){
         do {
-            swich (opcao){
+            switch (opcao){
                 case 1:
 
                     break;
