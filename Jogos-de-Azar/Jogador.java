@@ -1,7 +1,7 @@
 import java.io.Serializable;
 import java.util.Random;
 
-public class Jogador implements Serializable{
+public abstract Jogador implements Serializable{
 
     private String nome;
     private String tipo;
@@ -17,7 +17,7 @@ public class Jogador implements Serializable{
         this.pontos = pontos;
     }
     //Valida as Jogadas feitas pelo Jogador.
-    public void validarJogada(int escolha)
+   /* public void validarJogada(int escolha)
     {
         switch (escolha){
             case 1:
@@ -64,7 +64,7 @@ public class Jogador implements Serializable{
                 break;
         }
         
-    }
+    }*/
 
     public String getNome() {
         return nome;
