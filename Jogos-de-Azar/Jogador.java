@@ -1,5 +1,4 @@
 import java.io.Serializable;
-import java.util.Random;
 
 public abstract class Jogador implements Serializable{
 
