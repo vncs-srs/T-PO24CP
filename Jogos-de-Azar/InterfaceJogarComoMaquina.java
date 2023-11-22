@@ -1,5 +1,5 @@
 public class InterfaceJogarComoMaquina{
-    public void aplicarEstrategia(int n){// n e o numero maximo de jogadas
+    public int aplicarEstrategia(int n){// n e o numero maximo de jogadas
         int min = 1;
         int max = n;// parametriar
         int quantidadeNumeros = max - min + 1;
@@ -18,6 +18,6 @@ public class InterfaceJogarComoMaquina{
                 return numeroAleatorio+1;
             }
         }
-        //return 0;
+        return 0;
     }
 }
