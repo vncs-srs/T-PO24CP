@@ -9,7 +9,8 @@ public class Humano extends Jogador implements InterfaceJogarComoHumano {
     private JogoGeneral General;
     private JogoAzar Azar;
 
-    public Humano (String cpf,String agencia,String conta,int numeroBanco){
+    public Humano (String nome, String tipo,String cpf,String agencia,String conta,int numeroBanco){
+        super (nome, tipo);
         this.cpf = cpf;
         this.agencia = agencia;
         this.conta = conta;
