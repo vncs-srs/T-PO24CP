@@ -10,7 +10,7 @@ public abstract class JogoDados implements Serializable, Estatistica{
     public JogoDados()
     {
         this.Faces = new int[numFaces];
-        saldo = 100;
+        //this.jogadas = new int[10];
     }
 
     public int retornaValor(int numeroDaJogada)
@@ -55,8 +55,8 @@ public abstract class JogoDados implements Serializable, Estatistica{
     
     public abstract boolean Vitoria ();
 
-    //tem que sair daqui e ir pra jogador
-    public void aposta(float valorApostado)
+    //tem que sair daqui e ir pra jogador???
+    public void apostar(float valorApostado)
     {
         if ((saldo != 0)&&(valorApostado<=saldo))
         {
@@ -78,5 +78,9 @@ public abstract class JogoDados implements Serializable, Estatistica{
     public float getSaldo()
     {
         return saldo;
+    }
+    public void setSaldo()
+    {
+        saldo=100.00F;
     }
 }

@@ -92,6 +92,7 @@ public class JogoAzar extends JogoDados {
         return verdade;
     }
 
+    //atualmente isso eh um "exe." e a funcao que devolve vitoria ou derrota, tenho que expandir pra ser a uma funcao que roda com pausa
     public boolean Vitoria ()
     {
         boolean resultado;

@@ -15,6 +15,11 @@ public abstract class Jogador implements Serializable{
         this.General = new JogoGeneral();
         this.valida = new boolean[13] ;
         this.pontos = pontos;
+
+    }
+    public float getSaldoJogador()
+    {
+        return Jogo.getSaldo();
     }
     //Valida as Jogadas feitas pelo Jogador.
    /* public void validarJogada(int escolha)
