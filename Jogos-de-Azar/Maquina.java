@@ -13,7 +13,8 @@ public class Maquina extends Jogador implements InterfaceJogarComoMaquina{
         opcao = Estrategia(2); //Verificar se isso funciona.. 
     }
     
-    public int escolherJogada(int opcao){
+    //mudei pra void
+    public void escolherJogada(int opcao){
         do {
             switch (opcao){
                 case 1:
