@@ -85,7 +85,7 @@ public class Humano extends Jogador implements InterfaceJogarComoHumano {
                     //mostraJogadasExecutadas();
                     break;
                 case 2:
-                    
+                    Azar.Vitoria(); // Verificar se funciona
                     break;
                 default:
                     System.out.println("Opção inválida. Tente novamente.");
