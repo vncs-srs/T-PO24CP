@@ -25,6 +25,10 @@ public class usaCampeonato {
     public static void menu(Campeonato jogo) {
         String tipoJogador;
         String nome;
+        String cpf;
+        String agencia;
+        String conta;
+        int numeroBanco;
         char opcao;
         Scanner menu = new Scanner (System.in);
 
@@ -55,9 +59,26 @@ public class usaCampeonato {
                     
                     System.out.print("Nome do jogador: ");
                     nome = entrada.next();
-                    Jogador jogador = new Jogador(nome,tipoJogador);
+                    if(tipoJogador.equalsIgnoreCase("H")){
+                        System.out.println("                > Dados Bancarios: ");
+                        System.out.print("CPF: ");
+                        cpf = entrada.next();
+                        System.out.print("Agencia: ");
+                        agencia = entrada.next();
+                        System.out.print("Conta: ");
+                        conta = entrada.next();
+                        System.out.print("Numero do Banco: ");
+                        numeroBanco = entrada.nextInt();
+
+                        Jogador jogador = new Humano(nome,tipoJogador,cpf,agencia,conta,numeroBanco);
+                        jogo.adicionarJogador(jogador);
+                    }
+                    else{
+                        Jogador jogador = new Maquina(nome, tipoJogador);
+                        jogo.adicionarJogador(jogador);
+                    }
                     limpaTerminal();
-                    jogo.adicionarJogador(jogador);
+                    //jogo.adicionarJogador(jogador);
 
                     break;
                 case 'r':
