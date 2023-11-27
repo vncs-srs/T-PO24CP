@@ -49,6 +49,21 @@ public class Campeonato {
 
     //Inicia o Jogo
     public void iniciarCampeonato(){
+        for (Jogador jogador : jogadores){
+            if (jogador != null){
+                if (jogador instanceof Humano){
+                    System.out.println("\nJogador " + jogador.getNome() + " (Humano)");
+                    ((Humano)jogador).escolherJogo();
+                }
+                else if (jogador instanceof Maquina){
+                    System.out.println("\nJogador " + jogador.getNome() + " (Maquina)");
+                    ((Maquina)jogador).escolherJogo();
+                }
+            }
+        }
+    }
+
+    /*public void iniciarCampeonato(){
         int rodadas = 13; 
         int entrada;
         String verificaTipo;
@@ -100,7 +115,7 @@ public class Campeonato {
                 
             }
         } 
-    }
+    }*/
     //Mostra a cartela de resultados
 
     public void mostrarCartela(){
