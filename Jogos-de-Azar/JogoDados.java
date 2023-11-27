@@ -6,11 +6,13 @@ public abstract class JogoDados implements Serializable, Estatistica{
     private int[] jogadas;
     private float saldo; 
     private int [] Faces;
+    private boolean vitoria;
 
     public JogoDados()
     {
         this.Faces = new int[numFaces];
         //this.jogadas = new int[10];
+        //this.vitoria = false;
     }
 
     public int retornaValor(int numeroDaJogada)
@@ -52,15 +54,23 @@ public abstract class JogoDados implements Serializable, Estatistica{
             }
         }
     }
-    
-    public abstract boolean Vitoria ();
+
+    public void setVitoria(boolean m)
+    {
+        vitoria = m;
+    }
+
+    public boolean getVitoria()
+    {
+        return vitoria;
+    }
 
     //tem que sair daqui e ir pra jogador???
     public void apostar(float valorApostado)
     {
         if ((saldo != 0)&&(valorApostado<=saldo))
         {
-            if (Vitoria()==true) 
+            if (vitoria==true) 
             {
                 saldo=saldo+valorApostado;
             }

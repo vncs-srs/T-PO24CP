@@ -93,12 +93,13 @@ public class JogoAzar extends JogoDados {
     }
 
     //atualmente isso eh um "exe." e a funcao que devolve vitoria ou derrota, tenho que expandir pra ser a uma funcao que roda com pausa
-    public boolean Vitoria ()
+    public void ExecutarJogo ()
     {
         boolean resultado;
         int dados=2,i=1, alvo=0;
         do
         {
+            System.out.println(i+"° lancamento");
             rolarDados(dados);
             mostraValorDados(dados);
             resultado=seteEonze();
@@ -125,9 +126,10 @@ public class JogoAzar extends JogoDados {
             if(alvo==0)
             {
                 alvo=somaDados(dados);
+                System.out.println("Numero a ser buscado "+alvo);
             }
-            
-        }while(i==1);
-        return resultado;
+            i++;
+        }while(i!=0);
+        setVitoria(resultado);
     }
 }
