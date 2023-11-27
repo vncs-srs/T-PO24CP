@@ -130,10 +130,10 @@ public abstract class Jogador implements Serializable{
 
 
     //Rola os dados e mostra os valores obtidos
-    public void jogarDados(int n) { 
-        Jogo.rolarDados(n);
+    public void jogarDados(int numeroDeDados, int turno) { 
+        Jogo[turno].rolarDados(numeroDeDados);
         System.out.println("Jogador " + nome + " jogou o dado e obteve: " );
-        Jogo.mostraValorDados(n);
+        Jogo[turno].mostraValorDados(numeroDeDados);
     }
     //Mostra as jogadas execultadas pelo jogador
     public void mostraJogadasExecutadas() {
