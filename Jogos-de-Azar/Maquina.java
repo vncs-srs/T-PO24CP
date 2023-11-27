@@ -20,6 +20,7 @@ public class Maquina extends Jogador implements InterfaceJogarComoMaquina{
                 case 1:
                     int escolha;
                     System.out.println("\nJogador " + getNome() + " (Humano)");
+                    jogarDados(6,13);
                     System.out.print("\n>Para qual jogada deseja marcar: [1 - 13]\n1 2 3 4 5 6 7(T) 8(Q) 9(F) 10(S-) 11(S+) 12(G) 13(X)\n");
                     do{
                         escolha = Estrategia(13);
