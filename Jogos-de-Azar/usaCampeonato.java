@@ -45,7 +45,7 @@ public class usaCampeonato {
             System.out.println("|--------------------------------------------------------------|");
             System.out.print("Escolha uma opção: ");
             opcao = menu.next().charAt(0);
-            limpaTerminal();
+            //limpaTerminal();
             
             switch (opcao) {
                 case 'a':    
@@ -77,7 +77,7 @@ public class usaCampeonato {
                         Jogador jogador = new Maquina(nome, tipoJogador);
                         jogo.adicionarJogador(jogador);
                     }
-                    limpaTerminal();
+                    //limpaTerminal();
                     //jogo.adicionarJogador(jogador);
 
                     break;
@@ -85,31 +85,31 @@ public class usaCampeonato {
                     Scanner name = new Scanner(System.in);
                     System.out.println("Qual Jogador deseja remover: ");
                     nome = name.next();
-                    limpaTerminal();
+                    //limpaTerminal();
                     jogo.removerJogador(nome);
                     break;
                 case 'i':
-                    limpaTerminal();
+                    //limpaTerminal();
                     jogo.iniciarCampeonato();
                     break;
                 case 'm':
-                    limpaTerminal();
+                    //limpaTerminal();
                     jogo.mostrarCartela();
                     break;
                 case 'g':
-                    limpaTerminal();
+                    //limpaTerminal();
                     jogo.gravarEmArquivo();
                     break;
                 case 'l':
-                    limpaTerminal();
+                    //limpaTerminal();
                     jogo.lerDoArquivo();
                     break;
                 case 's':
-                    limpaTerminal();
+                    //limpaTerminal();
                     System.out.println("Saindo do jogo. Até mais!");
                     break;
                 default:
-                limpaTerminal();
+                    //limpaTerminal();
                     System.out.println("Opção inválida. Tente novamente.");
                     break;
             }
