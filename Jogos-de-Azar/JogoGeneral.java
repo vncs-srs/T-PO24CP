@@ -435,7 +435,7 @@ public class JogoGeneral extends JogoDados{
         }
         return resultados;
     }
-    public boolean Vitoria ()
+    public void Vencer ()
     {
         //lembrando que isso so pode ser usado no final;
         boolean vitoria=false;
@@ -448,6 +448,6 @@ public class JogoGeneral extends JogoDados{
             vitoria=true;
         }
 
-        return vitoria;
+        setVitoria(vitoria);;
     }
 }
