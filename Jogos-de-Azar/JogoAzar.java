@@ -56,7 +56,7 @@ public class JogoAzar extends JogoDados {
     public int somaDados(int n)
     {
         int soma=0,i;
-        for(i=0;i<2;i++)
+        for(i=0;i<n;i++)
         {
             soma += dados[i].getSideUp();
         }
@@ -95,15 +95,15 @@ public class JogoAzar extends JogoDados {
     //atualmente isso eh um "exe." e a funcao que devolve vitoria ou derrota, tenho que expandir pra ser a uma funcao que roda com pausa
     public void ExecutarJogo ()
     {
-        boolean resultado;
+        boolean resultado=false;
         int dados=2,i=1, alvo=0;
-        do
+        do//while(flag!=-1);
         {
             System.out.println(i+"° lancamento");
             rolarDados(dados);
             mostraValorDados(dados);
             resultado=seteEonze();
-            if(resultado=true&&alvo==0)
+            if(resultado==true&&alvo==0)
             {
                 System.out.println("eba, vc venceu!");
                 break;
