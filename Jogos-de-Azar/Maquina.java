@@ -48,7 +48,7 @@ public class Maquina extends Jogador implements InterfaceJogarComoMaquina{
                     //mostraJogadasExecutadas();
                     break;
                 case 2:
-                    Azar.Vitoria(); // Verificar se funciona
+                    Azar.ExecutarJogo(); // Verificar se funciona
                     break;
                 default:
                     System.out.println("Opção inválida. Tente novamente.");
