@@ -1,12 +1,14 @@
-import java.io.BufferedReader;
+//import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.FileReader;
+//import java.io.FileReader;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.util.Iterator;
+//import java.util.Iterator;
 import java.util.Scanner;
+
+//import javax.swing.plaf.synth.SynthStyle;
 
 public class Campeonato {
     private Jogador[] jogadores;
@@ -119,6 +121,42 @@ public class Campeonato {
     //Mostra a cartela de resultados
 
     public void mostrarCartela(){
+        int opcao;
+        Scanner menu = new Scanner (System.in);
+        do {
+            System.out.println("                > Cartela de Resultados:");
+            System.out.println("|--------------------------------------------------------------|");
+            System.out.println("| (1) Mostrar dados de todos os jogadores                      |");
+            System.out.println("| (2) Mostrar dados dos Jogadores do tipo Humanos              |");
+            System.out.println("| (3) Mostrar dados dos Jogadores do tipo Maquinas             |");
+            System.out.println("|--------------------------------------------------------------|");
+            System.out.print("Escolha uma opção: ");
+            opcao = menu.nextInt();
+
+            switch (opcao) { 
+                case 1:
+                    for (Jogador jogador : jogadores) {
+                        if(jogador!=null)
+                            System.out.printf("%-8s", jogador.getNome() + "(" + jogador.getTipo() + ")\t");// criar um get para mostra o tipo de jogo
+                        }
+                    break;
+                case 2:
+
+                    break;
+                
+                case 3:
+
+                    break;
+            
+                default:
+                    System.out.println("Opção inválida. Tente novamente.");
+                    opcao = -1;            
+                    break;
+            }
+        }while (opcao == -1);
+        
+    }
+    /*public void mostrarCartela(){
         System.out.println("-- Cartela de Resultados --");
 
         System.out.printf("%-10s", "");
@@ -142,7 +180,8 @@ public class Campeonato {
                 System.out.printf("\t("+jogador.salvaPontos()+")\t");
         }
         System.out.println();
-    }
+    }*/
+
     //Grava os dados do jogo em arquivo. 
     public void gravarEmArquivo()
     {
