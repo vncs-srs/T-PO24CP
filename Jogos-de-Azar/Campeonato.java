@@ -1,14 +1,10 @@
-//import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-//import java.io.FileReader;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-//import java.util.Iterator;
 import java.util.Scanner;
 
-//import javax.swing.plaf.synth.SynthStyle;
 
 public class Campeonato {
     private Jogador[] jogadores;
