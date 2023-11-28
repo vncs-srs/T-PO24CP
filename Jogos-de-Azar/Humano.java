@@ -41,17 +41,20 @@ public class Humano extends Jogador implements InterfaceJogarComoHumano {
             System.out.println("|--------------------------------------------------------------|");
             System.out.print("Escolha uma opção: ");
             opcao = menu.nextInt();
-            escolherJogada(opcao);
 
-            if (opcao != 1 || opcao != 2)
+            if (opcao == 1 || opcao == 2)
+                escolherJogada(opcao);
+            else{
                 System.out.println("Opção inválida. Tente novamente.");
+                opcao = -1;
+            }
 
-        }while (opcao != 1 || opcao != 2); 
+        }while (opcao == -1); 
             
     }
     public void escolherJogada(int opcao){
         // do esta quebrado
-        //do {
+        do {
             switch (opcao){
                 case 1:
                     int escolha;
@@ -90,8 +93,9 @@ public class Humano extends Jogador implements InterfaceJogarComoHumano {
                     break;
                 default:
                     System.out.println("Opção inválida. Tente novamente.");
+                    opcao = -1;
                     break;
             }
-        //} while (opcao != 1 || opcao != 2);        
+        } while (opcao == -1);        
     }
 }
