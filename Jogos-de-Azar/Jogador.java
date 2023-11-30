@@ -42,6 +42,10 @@ public abstract class Jogador implements Serializable{
 
     }
 
+    /*public void incluirJogo(int n){
+        this.Jogo =  new JogoDados[n];
+    }*/
+
     //chamar isso so quando tiver o resultado de vitoria ou derrota do jogo de azar ou general
     public float resultadoDaAposta(int n)
     {
