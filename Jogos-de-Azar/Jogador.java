@@ -16,7 +16,7 @@ public abstract class Jogador implements Serializable{
         //this.General = new JogoGeneral();
         this.Jogo = new JogoDados[10];
         this.valida = new boolean[13] ;
-        this.pontos = pontos;
+        //this.pontos = pontos;
 
     }
     public float getSaldoJogador()
@@ -41,10 +41,16 @@ public abstract class Jogador implements Serializable{
         }
 
     }
-
-    /*public void incluirJogo(int n){
-        this.Jogo =  new JogoDados[n];
-    }*/
+    public JogoDados incluirJogo(int n){
+        switch (n) {
+            case 1:
+                return new JogoGeneral();
+            case 2:
+                return new JogoAzar();
+            default:
+                return null;
+        }
+    }
 
     //chamar isso so quando tiver o resultado de vitoria ou derrota do jogo de azar ou general
     public float resultadoDaAposta(int n)
