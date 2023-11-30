@@ -6,8 +6,6 @@ public class Humano extends Jogador implements InterfaceJogarComoHumano {
     private String conta;
     private int numeroBanco;
     private int opcao;
-    private JogoGeneral General;
-    private JogoAzar Azar;
 
     public Humano (String nome, String tipo,String cpf,String agencia,String conta,int numeroBanco){
         super (nome, tipo);
@@ -15,8 +13,6 @@ public class Humano extends Jogador implements InterfaceJogarComoHumano {
         this.agencia = agencia;
         this.conta = conta;
         this.numeroBanco = numeroBanco;
-        this.General = new JogoGeneral();
-        this.Azar = new JogoAzar();
     }
     public String getCPF(){
         return cpf;
