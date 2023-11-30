@@ -97,7 +97,7 @@ public class JogoAzar extends JogoDados {
     {
         boolean resultado=false;
         int dados=2,i=1, alvo=0;
-        do//while(flag!=-1);
+        do
         {
             System.out.println(i+"° lancamento");
             rolarDados(dados);

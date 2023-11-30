@@ -54,12 +54,13 @@ public class Humano extends Jogador implements InterfaceJogarComoHumano {
     }
     public void escolherJogada(int opcao){
         // do esta quebrado
+        int j=0;
         do {
             switch (opcao){
                 case 1:
                     int escolha;
                     System.out.println("\nJogador " + getNome() + " (Humano)");
-                    jogarDados(5,13);
+                    jogarDados(5,j);
                     System.out.print("\n>Para qual jogada deseja marcar: [1 - 13]\n1 2 3 4 5 6 7(T) 8(Q) 9(F) 10(S-) 11(S+) 12(G) 13(X)\n");
                     do{
                         Scanner decisao = new Scanner(System.in);
@@ -96,6 +97,7 @@ public class Humano extends Jogador implements InterfaceJogarComoHumano {
                     opcao = -1;
                     break;
             }
+            j++;
         } while (opcao == -1);        
     }
 }

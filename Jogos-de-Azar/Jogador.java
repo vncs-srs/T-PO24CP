@@ -8,6 +8,7 @@ public abstract class Jogador implements Serializable{
     private JogoDados[] Jogo;
     private boolean[] valida;
     private int pontos;
+    private float saldoJogador;
 
     public Jogador(String nome, String tipo) {
         this.nome = nome;
@@ -18,9 +19,14 @@ public abstract class Jogador implements Serializable{
         this.pontos = pontos;
 
     }
-    public float getSaldoJogador(int n)
+    public float getSaldoJogador()
     {
-        return Jogo[n].getSaldo();
+        saldoJogador = Jogo[0].getSaldo();
+        return Jogo[0].getSaldo();
+    }
+    public void setSaldoJogador()
+    {
+        Jogo[0].setSaldo();
     }
     //Valida as Jogadas feitas pelo Jogador.
    /* public void validarJogada(int escolha)
@@ -131,10 +137,12 @@ public abstract class Jogador implements Serializable{
 
     //Rola os dados e mostra os valores obtidos
     public void jogarDados(int numeroDeDados, int turno) { 
-        System.out.println("turno="+turno+"   num="+numeroDeDados);
-        Jogo[turno].rolarDados(numeroDeDados);
+       
+        System.out.println("turno="+(i+1)+"   num="+numeroDeDados);
+        Jogo[i].rolarDados(numeroDeDados);
         System.out.println("Jogador " + nome + " jogou o dado e obteve: " );
-        Jogo[turno].mostraValorDados(numeroDeDados);
+        Jogo[i].mostraValorDados(numeroDeDados);
+        
     }
     //Mostra as jogadas execultadas pelo jogador
     public void mostraJogadasExecutadas() {
