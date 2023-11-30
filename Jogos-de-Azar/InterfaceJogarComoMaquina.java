@@ -1,5 +1,5 @@
 public interface InterfaceJogarComoMaquina{
     void escolherJogo();
-    void escolherJogada(int opcao);   
+    void escolherJogada(JogoDados opcao);   
     int Estrategia(int n);
 }
