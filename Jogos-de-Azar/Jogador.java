@@ -21,12 +21,32 @@ public abstract class Jogador implements Serializable{
     }
     public float getSaldoJogador()
     {
-        saldoJogador = Jogo[0].getSaldo();
-        return Jogo[0].getSaldo();
+        return saldoJogador;
     }
     public void setSaldoJogador()
     {
-        Jogo[0].setSaldo();
+        saldoJogador = 100F;
+    }
+    public void apostarValorX(float X, int n)
+    {
+        saldoJogador = saldoJogador - X;
+        if(saldoJogador>=0F)
+        {
+            Jogo[n].setvalorDaAposta(X);
+        }
+        else
+        {
+            saldoJogador = saldoJogador + X;
+            System.out.println("Valor invalido para a aposta !!!");
+        }
+
+    }
+
+    //chamar isso so quando tiver o resultado de vitoria ou derrota do jogo de azar ou general
+    public float resultadoDaAposta(int n)
+    {
+        Jogo[n].apostar();
+        return Jogo[n].getvalorDaAposta();
     }
     //Valida as Jogadas feitas pelo Jogador.
    /* public void validarJogada(int escolha)

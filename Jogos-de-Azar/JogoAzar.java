@@ -26,11 +26,13 @@ public class JogoAzar extends JogoDados {
         for(i=0;i<n;i++)
         {   
             System.out.print(dados[i].getSideUp());
-            if(i!=4)
+            if(i!=(n-1))
             {
-                System.out.print(" ");
+                System.out.print(" + ");
             }
         }
+        System.out.println(" = "+somaDados(n));
+        
     }
 
     //essa tem que adaptar de forma diferente
@@ -121,7 +123,7 @@ public class JogoAzar extends JogoDados {
             }
             else
             {
-                System.out.println("tente novamente.");   
+                //System.out.println("tente novamente.");   
             }
             if(alvo==0)
             {

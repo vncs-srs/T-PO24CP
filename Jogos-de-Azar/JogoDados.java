@@ -4,7 +4,7 @@ public abstract class JogoDados implements Serializable, Estatistica{
     
     private Dado[] dados;
     private int[] jogadas;
-    private float saldo; 
+    private float valorDaAposta; 
     private int [] Faces;
     private boolean vitoria;
 
@@ -66,17 +66,17 @@ public abstract class JogoDados implements Serializable, Estatistica{
     }
 
     //tem que sair daqui e ir pra jogador???
-    public void apostar(float valorApostado)
+    public void apostar()
     {
-        if ((saldo != 0)&&(valorApostado<=saldo))
+        if ((valorDaAposta != 0))
         {
             if (vitoria==true) 
             {
-                saldo=saldo+valorApostado;
+                valorDaAposta=valorDaAposta+valorDaAposta;
             }
             else
             {
-                saldo = saldo- valorApostado;
+                valorDaAposta = 0F;
             }
         }
         else
@@ -85,12 +85,12 @@ public abstract class JogoDados implements Serializable, Estatistica{
         }
     }
 
-    public float getSaldo()
+    public float getvalorDaAposta()
     {
-        return saldo;
+        return valorDaAposta;
     }
-    public void setSaldo()
+    public void setvalorDaAposta(float dinheiro)
     {
-        saldo=100.00F;
+        valorDaAposta=dinheiro;
     }
 }
