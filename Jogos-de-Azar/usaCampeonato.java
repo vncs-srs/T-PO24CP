@@ -121,7 +121,7 @@ public class usaCampeonato {
         Campeonato jogo = new Campeonato();
 
         //Mostra Escrito na tela JogoGeneal
-        /*String nomeArquivo = "jogogeneralASCII.txt";
+        String nomeArquivo = "jogosdeazarASCII.txt";
         try (BufferedReader br = new BufferedReader(new FileReader(nomeArquivo))) {
             String linha;
             while ((linha = br.readLine()) != null) {
@@ -129,7 +129,7 @@ public class usaCampeonato {
             }
         } catch (IOException e) {
             System.err.println("Erro ao ler o arquivo: " + e.getMessage());
-        }*/
+        }
         
         menu(jogo);
     }

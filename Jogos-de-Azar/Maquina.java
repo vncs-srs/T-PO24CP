@@ -2,6 +2,8 @@ import java.util.Random;
 
 public class Maquina extends Jogador implements InterfaceJogarComoMaquina{
     private int opcao;
+    private int turno;
+    private int numeroJogos;
 
     public Maquina(String nome, String tipo){
         super (nome, tipo);
@@ -10,8 +12,9 @@ public class Maquina extends Jogador implements InterfaceJogarComoMaquina{
         //opcao = Estrategia(2); //Verificar se isso funciona.. 
         opcao = 2;//isso e so para testar a maquina..
         if (opcao == 1 || opcao == 2){
-            JogoDados jogo = incluirJogo(opcao);
+            JogoDados jogo = incluirJogo(opcao,numeroJogos);
             escolherJogada(jogo);
+            numeroJogos++;
         }
         else{
             System.out.println("Opção inválida. Tente novamente.");
@@ -19,40 +22,19 @@ public class Maquina extends Jogador implements InterfaceJogarComoMaquina{
         }
     }
     
-    //mudei pra void
     public void escolherJogada(JogoDados jogo){
-        int j=0;
         do {
             if (jogo instanceof JogoGeneral){
                 int escolha;
                 System.out.println("\nJogador " + getNome() + " (Humano)");
-                jogarDados(5,j);
+                jogarDados(5,turno);
                 System.out.print("\n>Para qual jogada deseja marcar: [1 - 13]\n1 2 3 4 5 6 7(T) 8(Q) 9(F) 10(S-) 11(S+) 12(G) 13(X)\n");
                 do{
                     escolha = Estrategia(13);
-
-                    if (escolha == 1 || escolha == 2 || escolha == 3 || escolha == 4 || escolha == 5 || escolha == 6)
-                        ((JogoGeneral)jogo).Jogada_de_n(escolha);
-                    else if (escolha == 7)
-                        ((JogoGeneral)jogo).Trinca();
-                    else if (escolha == 8)
-                        ((JogoGeneral)jogo).Quadra();
-                    else if (escolha == 9)
-                        ((JogoGeneral)jogo).FullHand();
-                    else if (escolha == 10)
-                        ((JogoGeneral)jogo).Sequencia_alta();
-                    else if (escolha == 11)
-                        ((JogoGeneral)jogo).Sequencia_baixa();  
-                    else if (escolha == 12)
-                        ((JogoGeneral)jogo).General();
-                    else if (escolha == 13)
-                        ((JogoGeneral)jogo).Jogada_aleatoria();
-                    else
-                        System.out.println("Opcao invalida. Tente novamente");
-
+                    validarJogada(escolha, (JogoGeneral) jogo);
                 }while(verificaBoolean(escolha-1) == true);
                 BooleanTrue(escolha-1);
-                //mostraJogadasExecutadas();
+                mostraJogadasExecutadas((JogoGeneral) jogo);
             }
             else if (jogo instanceof JogoAzar){
                 ((JogoAzar)jogo).ExecutarJogo();
@@ -62,7 +44,6 @@ public class Maquina extends Jogador implements InterfaceJogarComoMaquina{
                 opcao = -1;
             }
 
-            j++;
         } while (opcao == -1);        
     }
     public int Estrategia(int n){// n e o numero maximo de jogadas
