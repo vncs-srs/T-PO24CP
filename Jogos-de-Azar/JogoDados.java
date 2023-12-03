@@ -13,6 +13,11 @@ public abstract class JogoDados implements Serializable, Estatistica{
         this.Faces = new int[numFaces];
         //this.jogadas = new int[10];
         //this.vitoria = false;
+        dados = new Dado[5];
+        for (int i=0;i<5;i++)
+        {
+            dados[i]=new Dado();
+        }
     }
 
     public int retornaValor(int numeroDaJogada)
@@ -26,7 +31,7 @@ public abstract class JogoDados implements Serializable, Estatistica{
         int i;
         for(i=0;i<n;i++)
         {   
-            Faces[dados[i].getSideUp()] += 1;
+            Faces[dados[i].getSideUp()] = Faces[dados[i].getSideUp()] + 1;
         }
         
     }
@@ -38,7 +43,7 @@ public abstract class JogoDados implements Serializable, Estatistica{
         {   
             dados[i].roll();
         }
-        somarFacesSorteadas(n);
+        //somarFacesSorteadas(n);
     }
 
     public void mostraValorDados(int n)

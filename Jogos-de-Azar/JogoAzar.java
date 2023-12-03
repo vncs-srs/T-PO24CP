@@ -17,6 +17,7 @@ public class JogoAzar extends JogoDados {
         int i;
         for(i=0;i<n;i++)
         {   
+            //System.out.println(i);
             dados[i].roll();
         }
     }
@@ -24,10 +25,11 @@ public class JogoAzar extends JogoDados {
     public void mostraValorDados(int n)
     {
         //n=5(general)  n=2(azar)
-        int i;
+        int i, aux;
         for(i=0;i<n;i++)
         {   
-            System.out.print(dados[i].getSideUp());
+            aux =dados[i].getSideUp();
+            System.out.print(aux);
             if(i!=(n-1))
             {
                 System.out.print(" + ");
@@ -104,6 +106,12 @@ public class JogoAzar extends JogoDados {
         do
         {
             //TimeUnit.MILLISECONDS.sleep(100);//ver se isso funciona
+            try {
+                Thread.sleep((int) (250));
+                
+            } catch (InterruptedException e) {
+                System.err.println(e.toString());
+            }
             System.out.println(i+"° lancamento");
             rolarDados(dados);
             mostraValorDados(dados);

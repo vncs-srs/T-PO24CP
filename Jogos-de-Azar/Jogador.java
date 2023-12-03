@@ -44,10 +44,10 @@ public abstract class Jogador implements Serializable{
     public JogoDados incluirJogo(int n,int turno){
         switch (n) {
             case 1:
-                this.Jogo = new JogoGeneral[turno];
+                this.Jogo[turno] = new JogoGeneral();
                 return new JogoGeneral();
             case 2:
-                this.Jogo = new JogoAzar[turno];
+                this.Jogo[turno] = new JogoAzar();
                 return new JogoAzar();
             default:
                 return null;
@@ -120,12 +120,13 @@ public abstract class Jogador implements Serializable{
 
 
     //Rola os dados e mostra os valores obtidos
-    public void jogarDados(int numeroDeDados, int turno) {   
-        //System.out.println("turno="+(turno)+"   num="+numeroDeDados);
+    //ARRUMAR ISSO AQUI , TIPO O QUE ESSE X TA FAZENDO ?
+    public void jogarDados( int x,int turno) {   
+        System.out.println("turno="+(turno)+"   num="+5);
         System.out.println("Jogador " + nome + " jogou o dado e obteve: " );
-        JogoDados jogoAtual = (JogoDados) Jogo[turno];
-        jogoAtual.rolarDados(numeroDeDados);
-        jogoAtual.mostraValorDados(numeroDeDados);             
+        //JogoDados jogoAtual = (JogoDados) Jogo[turno];
+        Jogo[turno].rolarDados(5);
+        Jogo[turno].mostraValorDados(5);         
     }
     //Mostra as jogadas execultadas pelo jogador
     public void mostraJogadasExecutadas(JogoGeneral General) {

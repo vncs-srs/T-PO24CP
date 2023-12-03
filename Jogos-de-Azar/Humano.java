@@ -58,7 +58,7 @@ public class Humano extends Jogador implements InterfaceJogarComoHumano {
             
     }
     public void escolherJogada(JogoDados jogo){
-        do {
+                do {
             if (jogo instanceof JogoGeneral){
                 int escolha;
                 System.out.println("\nJogador " + getNome() + " (Humano)");
@@ -67,13 +67,13 @@ public class Humano extends Jogador implements InterfaceJogarComoHumano {
                 do{
                     Scanner decisao = new Scanner(System.in);
                     escolha = decisao.nextInt();
-                    validarJogada(escolha, (JogoGeneral) jogo);
+validarJogada(escolha, (JogoGeneral) jogo);
 
                 }while(verificaBoolean(escolha-1) == true);
                 BooleanTrue(escolha-1);
                 turno++;
                 mostraJogadasExecutadas((JogoGeneral) jogo);
-                
+
             }
             else if (jogo instanceof JogoAzar){
                 ((JogoAzar)jogo).ExecutarJogo();
@@ -83,6 +83,6 @@ public class Humano extends Jogador implements InterfaceJogarComoHumano {
                 opcao = -1;
             }
 
-        } while (opcao == -1);        
+                    } while (opcao == -1);        
     }
 }
