@@ -1,3 +1,5 @@
+import java.util.concurrent.TimeUnit;
+
 public class JogoAzar extends JogoDados {
   
     private Dado[] dados;
@@ -101,6 +103,7 @@ public class JogoAzar extends JogoDados {
         int dados=2,i=1, alvo=0;
         do
         {
+            //TimeUnit.MILLISECONDS.sleep(100);//ver se isso funciona
             System.out.println(i+"° lancamento");
             rolarDados(dados);
             mostraValorDados(dados);

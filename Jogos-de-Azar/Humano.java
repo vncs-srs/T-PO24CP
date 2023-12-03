@@ -29,6 +29,7 @@ public class Humano extends Jogador implements InterfaceJogarComoHumano {
     public JogoDados getTipoJogo(int opcao){
         return incluirJogo(opcao);
     }
+    //fazer um menu 'acima' desse ou expandir esse
     public void escolherJogo(){
         Scanner menu = new Scanner (System.in);
         
