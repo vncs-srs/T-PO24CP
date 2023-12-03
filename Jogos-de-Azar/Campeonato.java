@@ -125,32 +125,53 @@ public class Campeonato {
             System.out.println("| (1) Mostrar dados de todos os jogadores                      |");
             System.out.println("| (2) Mostrar dados dos Jogadores do tipo Humanos              |");
             System.out.println("| (3) Mostrar dados dos Jogadores do tipo Maquinas             |");
+            System.out.println("| (0) Sair                                                     |");
             System.out.println("|--------------------------------------------------------------|");
             System.out.print("Escolha uma opção: ");
             opcao = menu.nextInt();
 
             switch (opcao) { 
                 case 1:
-                    for (Jogador jogador : jogadores) {
-                        if(jogador!=null)
-                            System.out.printf("%-8s", jogador.getNome() + "(" + jogador.getTipo() + ")\t");// criar um get para mostra o tipo de jogo
-                        }
+                        System.out.println("Dados de todos os jogadores:");
+                        mostrarDadosTodosJogadores();
                     break;
                 case 2:
-
+                    System.out.println("Dados dos Jogadores do tipo Humanos:");
+                    mostrarDadosJogadoresPorTipo("H");
                     break;
                 
                 case 3:
+                    System.out.println("Dados dos Jogadores do tipo Máquinas:");
+                    mostrarDadosJogadoresPorTipo("M");
+                    break;
 
+                case 0:
+                    System.out.println("Saindo do menu.");
                     break;
             
                 default:
-                    System.out.println("Opção inválida. Tente novamente.");
-                    opcao = -1;            
+                    System.out.println("Opção inválida. Tente novamente.");           
                     break;
             }
-        }while (opcao == -1);
+        }while (opcao != 0);
         
+    }
+    private void mostrarDadosTodosJogadores() {
+        for (Jogador jogador : jogadores) {
+            if (jogador != null) {
+                System.out.printf("%-8s", jogador.getNome() + "(" + jogador.getTipo() + ")\t");
+            }
+        }
+        System.out.println();
+    }
+
+    private void mostrarDadosJogadoresPorTipo(String tipo) {
+        for (Jogador jogador : jogadores) {
+            if (jogador != null && jogador.getTipo().equalsIgnoreCase(tipo)) {
+                System.out.printf("%-8s", jogador.getNome() + "(" + jogador.getTipo() + ")\t");
+            }
+        }
+        System.out.println();
     }
     /*public void mostrarCartela(){
         System.out.println("-- Cartela de Resultados --");
