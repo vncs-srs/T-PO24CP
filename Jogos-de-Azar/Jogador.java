@@ -4,10 +4,10 @@ public abstract class Jogador implements Serializable{
 
     private String nome;
     private String tipo;
-    private JogoGeneral General ;
+    //private JogoGeneral General ;
     private JogoDados[] Jogo;
     private boolean[] valida;
-    private int pontos;
+    //private int pontos;
     private float saldoJogador;
 
     public Jogador(String nome, String tipo) {
@@ -41,11 +41,13 @@ public abstract class Jogador implements Serializable{
         }
 
     }
-    public JogoDados incluirJogo(int n){
+    public JogoDados incluirJogo(int n,int turno){
         switch (n) {
             case 1:
+                this.Jogo = new JogoGeneral[turno];
                 return new JogoGeneral();
             case 2:
+                this.Jogo = new JogoAzar[turno];
                 return new JogoAzar();
             default:
                 return null;
@@ -59,54 +61,28 @@ public abstract class Jogador implements Serializable{
         return Jogo[n].getvalorDaAposta();
     }
     //Valida as Jogadas feitas pelo Jogador.
-   /* public void validarJogada(int escolha)
+    public void validarJogada(int escolha,JogoGeneral General)
     {
-        switch (escolha){
-            case 1:
-                General.Jogada_de_1();
-                break;
-            case 2:
-                General.Jogada_de_2();
-                break;
-            case 3:
-                General.Jogada_de_3();
-                break;
-            case 4:
-                General.Jogada_de_4();
-                break;
-            case 5:
-                General.Jogada_de_5();
-                break;
-            case 6:
-                General.Jogada_de_6();
-                break;
-            case 7:
-                General.Trinca();
-                break;
-            case 8:
-                General.Quadra();
-                break;
-            case 9:
-                General.FullHand();
-                break;
-            case 10:
-                General.Sequencia_alta();
-                break;
-            case 11:
-                General.Sequencia_baixa();
-                break;
-            case 12:
-                General.General();
-                break;
-            case 13:
-                General.Jogada_aleatoria();
-                break;
-            default:
-                System.out.println("Opcao invalida. Tente novamente");
-                break;
+        if (escolha >= 1 && escolha <= 6) {
+            General.Jogada_de_n(escolha);
+        } else if (escolha == 7) {
+            General.Trinca();
+        } else if (escolha == 8) {
+            General.Quadra();
+        } else if (escolha == 9) {
+            General.FullHand();
+        } else if (escolha == 10) {
+            General.Sequencia_alta();
+        } else if (escolha == 11) {
+            General.Sequencia_baixa();
+        } else if (escolha == 12) {
+            General.General();
+        } else if (escolha == 13) {
+            General.Jogada_aleatoria();
+        } else {
+            System.out.println("Opcao invalida. Tente novamente");
         }
-        
-    }*/
+    }
 
     public String getNome() {
         return nome;
@@ -115,28 +91,6 @@ public abstract class Jogador implements Serializable{
     public String getTipo() {
         return tipo;
     }
-    //Remover prosteriormente
-  /*  public int maquina() {
-        int min = 1;
-        int max = 13;
-        int quantidadeNumeros = max - min + 1;
-        
-        boolean[] numerosGerados = new boolean[quantidadeNumeros];
-        Random random = new Random();
-        
-        int numerosRestantes = quantidadeNumeros;
-
-        while (numerosRestantes > 0) {
-            int numeroAleatorio = random.nextInt(quantidadeNumeros);
-
-            if (!numerosGerados[numeroAleatorio]) {
-                numerosGerados[numeroAleatorio] = true;
-                numerosRestantes--;
-                return numeroAleatorio+1;
-            }
-        }
-        return 0;
-    }*/
 
     public void BooleanTrue (int i)
     {
@@ -155,35 +109,34 @@ public abstract class Jogador implements Serializable{
     {
         return valida[i];
     }
-    public void resetPontos()
+    /*public void resetPontos(JogoGeneral General)
     {
         General.inicializaJogadas();
-    }
-    public int mostraPontosJogadaN (int N)
+    }*/
+    /*public int mostraPontosJogadaN (int N)
     {
         return General.retornaValor(N) ;
-    }
+    }*/
 
 
     //Rola os dados e mostra os valores obtidos
-    public void jogarDados(int numeroDeDados, int turno) { 
-       
-        System.out.println("turno="+(turno+1)+"   num="+numeroDeDados);
-        Jogo[turno].rolarDados(numeroDeDados);
+    public void jogarDados(int numeroDeDados, int turno) {   
+        //System.out.println("turno="+(turno)+"   num="+numeroDeDados);
         System.out.println("Jogador " + nome + " jogou o dado e obteve: " );
-        Jogo[turno].mostraValorDados(numeroDeDados);
-        
+        JogoDados jogoAtual = (JogoDados) Jogo[turno];
+        jogoAtual.rolarDados(numeroDeDados);
+        jogoAtual.mostraValorDados(numeroDeDados);             
     }
     //Mostra as jogadas execultadas pelo jogador
-    public void mostraJogadasExecutadas() {
+    public void mostraJogadasExecutadas(JogoGeneral General) {
         System.out.println("\nJogadas executadas por " + nome + ": ");
         General.mostraJogadas();
     }
 
-    public int salvaPontos()
+   /*  public int salvaPontos()
     {
         pontos = General.somaPontos();
 
         return pontos;
-    }
+    }*/
 }
