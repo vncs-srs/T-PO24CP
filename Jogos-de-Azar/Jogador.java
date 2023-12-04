@@ -45,10 +45,11 @@ public abstract class Jogador implements Serializable{
         switch (n) {
             case 1:
                 this.Jogo[turno] = new JogoGeneral();
-                return new JogoGeneral();
+                //talvez isso esteja errado
+                return Jogo[turno];
             case 2:
                 this.Jogo[turno] = new JogoAzar();
-                return new JogoAzar();
+                return Jogo[turno];
             default:
                 return null;
         }
