@@ -151,6 +151,10 @@ public abstract class Jogador implements Serializable{
     {
         return turno;
     }
+    public float getterGetSaldoTemporario()
+    {
+        return Jogo[turno].getSaldoTemporario();
+    }
 
    /*  public int salvaPontos()
     {

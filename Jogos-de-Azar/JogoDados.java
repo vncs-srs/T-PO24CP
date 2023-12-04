@@ -7,6 +7,7 @@ public abstract class JogoDados implements Serializable, Estatistica{
     private float valorDaAposta; 
     private int [] Faces;
     private boolean vitoria;
+    private float saldoTemporario;
 
     public JogoDados()
     {
@@ -72,26 +73,33 @@ public abstract class JogoDados implements Serializable, Estatistica{
         return vitoria;
     }
 
-    //tem que sair daqui e ir pra jogador???
     public void apostar()
     {
         if ((valorDaAposta != 0))
         {
+            saldoTemporario=0;
             if (vitoria==true) 
             {
+                saldoTemporario = valorDaAposta;
+                System.out.println("teste saldo temporairo: "+saldoTemporario);
                 valorDaAposta=valorDaAposta+valorDaAposta;
-                //System.out.println("valor dentro da funcao apostar: "+valorDaAposta);
+                
             }
             else
             {
+                saldoTemporario = saldoTemporario - valorDaAposta;
+                System.out.println("teste saldo temporairo: "+saldoTemporario);
                 valorDaAposta = 0F;
-                //System.out.println("valor dentro da funcao apostar: "+valorDaAposta);
             }
         }
         else
         {
             System.out.println("Quantia de dinheiro invalida para aposta.");
         }
+    }
+    public float getSaldoTemporario()
+    {
+        return saldoTemporario;
     }
 
     public float getvalorDaAposta()
