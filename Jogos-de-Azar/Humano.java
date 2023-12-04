@@ -74,7 +74,7 @@ public class Humano extends Jogador implements InterfaceJogarComoHumano {
             
     }
     public void escolherJogada(JogoDados jogo){
-                do {
+        do {
             if (jogo instanceof JogoGeneral){
                 int aux=0;
                 do{
@@ -87,7 +87,8 @@ public class Humano extends Jogador implements InterfaceJogarComoHumano {
                     Scanner decisao = new Scanner(System.in);
                     escolha = decisao.nextInt();
                     validarJogada(escolha, (JogoGeneral) jogo);
-
+                    if(verificaBoolean(escolha-1)== true)
+                        System.out.println("Opcao invalida. Tente novamente");
                 }while(verificaBoolean(escolha-1) == true);
                 BooleanTrue(escolha-1);
                 
@@ -111,6 +112,6 @@ public class Humano extends Jogador implements InterfaceJogarComoHumano {
                 opcao = -1;
             }
 
-                    } while (opcao == -1);        
+        } while (opcao == -1);        
     }
 }
