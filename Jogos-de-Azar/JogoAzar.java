@@ -119,17 +119,20 @@ public class JogoAzar extends JogoDados {
             if(resultado==true&&alvo==0)
             {
                 System.out.println("eba, vc venceu!");
+                setVitoria(true);
                 break;
             }
             resultado=derrota();
             if(resultado==true)
             {
                 System.out.println("poxa, vc perdeu!");
+                setVitoria(false);
                 break;
             }
             if(somaDados(dados)==alvo)
             {
                 System.out.println("eba, vc venceu!");
+                setVitoria(true);
                 break;
             }
             else
@@ -143,6 +146,6 @@ public class JogoAzar extends JogoDados {
             }
             i++;
         }while(i!=0);
-        setVitoria(resultado);
+        
     }
 }

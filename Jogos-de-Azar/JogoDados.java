@@ -80,10 +80,12 @@ public abstract class JogoDados implements Serializable, Estatistica{
             if (vitoria==true) 
             {
                 valorDaAposta=valorDaAposta+valorDaAposta;
+                //System.out.println("valor dentro da funcao apostar: "+valorDaAposta);
             }
             else
             {
                 valorDaAposta = 0F;
+                //System.out.println("valor dentro da funcao apostar: "+valorDaAposta);
             }
         }
         else

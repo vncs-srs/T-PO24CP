@@ -36,6 +36,15 @@ public class Humano extends Jogador implements InterfaceJogarComoHumano {
         Scanner menu = new Scanner (System.in);
         
         do{
+            if(getSaldoJogador()==0)
+            {
+                System.out.println("Voce esta sem dinheiro");
+                break;
+            }
+            else if(getTurno()==10){
+                System.out.println("Voce ja jogou 10 turnos");
+                break;
+            }
             System.out.println("            > Escolha um Jogo:");
             System.out.println("|--------------------------------------------------------------|");
             System.out.println("|Seu saldo e:"+ getSaldoJogador()+"                            |");
@@ -47,7 +56,7 @@ public class Humano extends Jogador implements InterfaceJogarComoHumano {
             valorDaAposta = (float)opcao;
 
         }while (opcao == -1);
-        if(getSaldoJogador()!=0) 
+        if(getSaldoJogador()!=0 &&getTurno()!=10) 
         escolherJogo();
     }
     public void escolherJogo(){
@@ -103,13 +112,18 @@ public class Humano extends Jogador implements InterfaceJogarComoHumano {
             ((JogoGeneral) jogo).Vencer();
             jogo.getVitoria();
             jogo.apostar();
+            valorDaAposta=jogo.getvalorDaAposta();
+            somaSaldoJogador(valorDaAposta);
+            System.out.println("Saldo atual: "+getSaldoJogador());
             }
             else if (jogo instanceof JogoAzar){
                 ((JogoAzar)jogo).ExecutarJogo();
                 apostarValorX(valorDaAposta,getTurno());
                 passaTurno();
-                jogo.getVitoria();
                 jogo.apostar();
+                valorDaAposta=jogo.getvalorDaAposta();
+                somaSaldoJogador(valorDaAposta);
+                System.out.println("Saldo atual: "+getSaldoJogador());
             }
             else{
                 System.out.println("Opção inválida. Tente novamente.");

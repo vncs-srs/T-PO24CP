@@ -23,6 +23,11 @@ public abstract class Jogador implements Serializable{
     {
         return saldoJogador;
     }
+    public float somaSaldoJogador(float v)
+    {
+        saldoJogador= saldoJogador+ v;
+        return saldoJogador;
+    }
     public void setSaldoJogador()
     {
         saldoJogador = 100F;
