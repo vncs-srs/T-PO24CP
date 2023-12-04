@@ -2,7 +2,6 @@ import java.util.Random;
 
 public class Maquina extends Jogador implements InterfaceJogarComoMaquina{
     private int opcao;
-    private int turno;
     private int numeroJogos;
 
     public Maquina(String nome, String tipo){
@@ -12,7 +11,7 @@ public class Maquina extends Jogador implements InterfaceJogarComoMaquina{
         //opcao = Estrategia(2); //Verificar se isso funciona.. 
         opcao = 2;//isso e so para testar a maquina..
         if (opcao == 1 || opcao == 2){
-            JogoDados jogo = incluirJogo(opcao,numeroJogos);
+            JogoDados jogo = incluirJogo(opcao);
             escolherJogada(jogo);
             numeroJogos++;
         }
@@ -27,7 +26,7 @@ public class Maquina extends Jogador implements InterfaceJogarComoMaquina{
             if (jogo instanceof JogoGeneral){
                 int escolha;
                 System.out.println("\nJogador " + getNome() + " (Humano)");
-                jogarDados(5,turno);
+                jogarDados();
                 System.out.print("\n>Para qual jogada deseja marcar: [1 - 13]\n1 2 3 4 5 6 7(T) 8(Q) 9(F) 10(S-) 11(S+) 12(G) 13(X)\n");
                 do{
                     escolha = Estrategia(13);

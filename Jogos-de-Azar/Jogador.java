@@ -4,6 +4,7 @@ public abstract class Jogador implements Serializable{
 
     private String nome;
     private String tipo;
+    private int turno=0;
     //private JogoGeneral General ;
     private JogoDados[] Jogo;
     private boolean[] valida;
@@ -41,7 +42,7 @@ public abstract class Jogador implements Serializable{
         }
 
     }
-    public JogoDados incluirJogo(int n,int turno){
+    public JogoDados incluirJogo(int n){
         switch (n) {
             case 1:
                 this.Jogo[turno] = new JogoGeneral();
@@ -122,7 +123,7 @@ public abstract class Jogador implements Serializable{
 
     //Rola os dados e mostra os valores obtidos
     //ARRUMAR ISSO AQUI , TIPO O QUE ESSE X TA FAZENDO ?
-    public void jogarDados( int x,int turno) {   
+    public void jogarDados() {   
         System.out.println("turno="+(turno)+"   num="+5);
         System.out.println("Jogador " + nome + " jogou o dado e obteve: " );
         //JogoDados jogoAtual = (JogoDados) Jogo[turno];
@@ -133,6 +134,18 @@ public abstract class Jogador implements Serializable{
     public void mostraJogadasExecutadas(JogoGeneral General) {
         System.out.println("\nJogadas executadas por " + nome + ": ");
         General.mostraJogadas();
+    }
+    public void setTurno()
+    {
+        turno=0;
+    }
+    public void passaTurno()
+    {
+        turno++;
+    }
+    public int getTurno()
+    {
+        return turno;
     }
 
    /*  public int salvaPontos()

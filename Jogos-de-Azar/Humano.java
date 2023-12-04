@@ -6,7 +6,6 @@ public class Humano extends Jogador implements InterfaceJogarComoHumano {
     private String conta;
     private int numeroBanco;
     private int opcao;
-    private int turno;
     private int numeroJogos;
 
     public Humano (String nome, String tipo,String cpf,String agencia,String conta,int numeroBanco){
@@ -29,7 +28,7 @@ public class Humano extends Jogador implements InterfaceJogarComoHumano {
         return numeroBanco;
     }
     public JogoDados getTipoJogo(int opcao){
-        return incluirJogo(opcao,turno);
+        return incluirJogo(opcao);
     }
     //fazer um menu 'acima' desse ou expandir esse
     public void escolherJogo(){
@@ -45,7 +44,7 @@ public class Humano extends Jogador implements InterfaceJogarComoHumano {
             opcao = menu.nextInt();
 
             if (opcao == 1 || opcao == 2){
-                JogoDados jogo = incluirJogo(opcao,numeroJogos);
+                JogoDados jogo = incluirJogo(opcao);
                 escolherJogada(jogo);
                 numeroJogos++;
             }
@@ -60,9 +59,12 @@ public class Humano extends Jogador implements InterfaceJogarComoHumano {
     public void escolherJogada(JogoDados jogo){
                 do {
             if (jogo instanceof JogoGeneral){
+                int aux=0;
+                do{
+                //aux=getTurno();
                 int escolha;
                 System.out.println("\nJogador " + getNome() + " (Humano)");
-                jogarDados(5,turno);
+                jogarDados();
                 System.out.print("\n>Para qual jogada deseja marcar: [1 - 13]\n1 2 3 4 5 6 7(T) 8(Q) 9(F) 10(S-) 11(S+) 12(G) 13(X)\n");
                 do{
                     Scanner decisao = new Scanner(System.in);
@@ -71,12 +73,16 @@ validarJogada(escolha, (JogoGeneral) jogo);
 
                 }while(verificaBoolean(escolha-1) == true);
                 BooleanTrue(escolha-1);
-                turno++;
+                
                 mostraJogadasExecutadas((JogoGeneral) jogo);
-
+                aux++;
+            }while(aux !=13);
+            passaTurno();
+            resetBoolean();
             }
             else if (jogo instanceof JogoAzar){
                 ((JogoAzar)jogo).ExecutarJogo();
+                passaTurno();
             }
             else{
                 System.out.println("Opção inválida. Tente novamente.");
