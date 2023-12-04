@@ -114,7 +114,15 @@ public class Humano extends Jogador implements InterfaceJogarComoHumano {
             jogo.apostar();
             valorDaAposta=jogo.getvalorDaAposta();
             somaSaldoJogador(valorDaAposta);
-            System.out.println("\n\nSeu saldo atual e: "+getSaldoJogador());
+            if(valorDaAposta!=0F)
+            {
+                System.out.println("\neba, vc venceu!");
+            }
+            else
+            {
+                System.out.println("\npoxa, vc perdeu!");
+            }
+            System.out.println("\nSeu saldo atual e: "+getSaldoJogador());
             }
             else if (jogo instanceof JogoAzar){
                 ((JogoAzar)jogo).ExecutarJogo();

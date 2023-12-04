@@ -1,4 +1,4 @@
 public interface Estatistica {
-    short numFaces=6;
+    final short numFaces=6;
     void somarFacesSorteadas(int n);
 }
