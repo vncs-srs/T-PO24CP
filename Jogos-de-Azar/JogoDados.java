@@ -43,6 +43,7 @@ public abstract class JogoDados implements Serializable, Estatistica{
         {   
             dados[i].roll();
         }
+        //se descomentar a linha de baixo o codigo quebra*************************
         //somarFacesSorteadas(n);
     }
 
