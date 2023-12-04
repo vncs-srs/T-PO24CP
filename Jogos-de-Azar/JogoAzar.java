@@ -105,9 +105,9 @@ public class JogoAzar extends JogoDados {
         int dados=2,i=1, alvo=0;
         do
         {
-            //TimeUnit.MILLISECONDS.sleep(100);//ver se isso funciona
+            // o delay e pq eu achei estranho so brotar tudo de uma vez
             try {
-                Thread.sleep((int) (250));
+                Thread.sleep((int) (110));
                 
             } catch (InterruptedException e) {
                 System.err.println(e.toString());
