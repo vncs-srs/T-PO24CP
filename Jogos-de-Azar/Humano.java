@@ -28,9 +28,6 @@ public class Humano extends Jogador implements InterfaceJogarComoHumano {
     public int getNumeroBanco(){
         return numeroBanco;
     }
-    public JogoDados getTipoJogo(int opcao){
-        return incluirJogo(opcao);
-    }
     //fazer um menu 'acima' desse ou expandir esse
     public void escolherValorDaAposta(){
         Scanner menu = new Scanner (System.in);
@@ -48,7 +45,6 @@ public class Humano extends Jogador implements InterfaceJogarComoHumano {
            
             System.out.println("|--------------------------------------------------------------|");
             System.out.println("|Seu saldo e: "+ getSaldoJogador()+"                                            |");
-            //System.out.println("|Quanto deseja apostar ?                                       |");
             System.out.println("|--------------------------------------------------------------|");
             System.out.print("Quanto deseja apostar ?  ");
             opcao = menu.nextInt();
@@ -89,40 +85,40 @@ public class Humano extends Jogador implements InterfaceJogarComoHumano {
             if (jogo instanceof JogoGeneral){
                 int aux=0;
                 do{
-                //aux=getTurno();
-                int escolha;
-                System.out.println("\nJogador " + getNome() + " (Humano)");
-                jogarDados();
-                System.out.print("\n>Para qual jogada deseja marcar: [1 - 13]\n1 2 3 4 5 6 7(T) 8(Q) 9(F) 10(S-) 11(S+) 12(G) 13(X)\n");
-                do{
-                    Scanner decisao = new Scanner(System.in);
-                    escolha = decisao.nextInt();
-                    validarJogada(escolha, (JogoGeneral) jogo);
-                    if(verificaBoolean(escolha-1)== true)
-                        System.out.println("Opcao invalida. Tente novamente");
-                }while(verificaBoolean(escolha-1) == true);
-                BooleanTrue(escolha-1);
-                
-                mostraJogadasExecutadas((JogoGeneral) jogo);
-                aux++;
-            }while(aux !=13);
-            apostarValorX(valorDaAposta,getTurno());
-            passaTurno();
-            resetBoolean();
-            ((JogoGeneral) jogo).Vencer();
-            jogo.getVitoria();
-            jogo.apostar();
-            valorDaAposta=jogo.getvalorDaAposta();
-            somaSaldoJogador(valorDaAposta);
-            if(valorDaAposta!=0F)
-            {
-                System.out.println("\neba, vc venceu!");
-            }
-            else
-            {
-                System.out.println("\npoxa, vc perdeu!");
-            }
-            System.out.println("\nSeu saldo atual e: "+getSaldoJogador());
+                    //aux=getTurno();
+                    int escolha;
+                    System.out.println("\nJogador " + getNome() + " (Humano)");
+                    jogarDados();
+                    System.out.print("\n>Para qual jogada deseja marcar: [1 - 13]\n1 2 3 4 5 6 7(T) 8(Q) 9(F) 10(S-) 11(S+) 12(G) 13(X)\n");
+                    do{
+                        Scanner decisao = new Scanner(System.in);
+                        escolha = decisao.nextInt();
+                        validarJogada(escolha, (JogoGeneral) jogo);
+                        if(verificaBoolean(escolha-1)== true)
+                            System.out.println("Opcao invalida. Tente novamente");
+                    }while(verificaBoolean(escolha-1) == true);
+                    BooleanTrue(escolha-1);
+                    
+                    mostraJogadasExecutadas((JogoGeneral) jogo);
+                    aux++;
+                }while(aux !=13);
+                apostarValorX(valorDaAposta,getTurno());
+                passaTurno();
+                resetBoolean();
+                ((JogoGeneral) jogo).Vencer();
+                jogo.getVitoria();
+                jogo.apostar();
+                valorDaAposta=jogo.getvalorDaAposta();
+                somaSaldoJogador(valorDaAposta);
+                if(valorDaAposta!=0F)
+                {
+                    System.out.println("\neba, vc venceu!");
+                }
+                else
+                {
+                    System.out.println("\npoxa, vc perdeu!");
+                }
+                System.out.println("\nSeu saldo atual e: "+getSaldoJogador());
             }
             else if (jogo instanceof JogoAzar){
                 ((JogoAzar)jogo).ExecutarJogo();

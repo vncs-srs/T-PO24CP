@@ -9,6 +9,7 @@ public abstract class Jogador implements Serializable{
     private boolean[] valida;
     //private int pontos;
     private float saldoJogador;
+    private int tipoJogo;
 
     public Jogador(String nome, String tipo) {
         this.nome = nome;
@@ -46,7 +47,11 @@ public abstract class Jogador implements Serializable{
         }
 
     }
+    public int getTipoJogo(){
+        return tipoJogo;
+    }
     public JogoDados incluirJogo(int n){
+        tipoJogo = n;
         switch (n) {
             case 1:
                 Jogo[turno] = new JogoGeneral();

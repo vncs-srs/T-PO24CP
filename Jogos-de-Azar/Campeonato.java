@@ -57,7 +57,7 @@ public class Campeonato {
                 }
                 else if (jogador instanceof Maquina){
                     System.out.println("\nJogador " + jogador.getNome() + " (Maquina)");
-                    ((Maquina)jogador).escolherJogo();
+                    ((Maquina)jogador).escolherValorDaAposta();
                 }
             }
         }
@@ -161,8 +161,27 @@ public class Campeonato {
     private void mostrarDadosTodosJogadores() {
         for (Jogador jogador : jogadores) {
             if (jogador != null) {
-                System.out.printf("%-8s", jogador.getNome() + "(" + jogador.getTipo() + ")\t");
+                System.out.printf("%-8s", jogador.getNome() + "(" + jogador.getTipo() + ")");
+                if(jogador.getTipoJogo() == 1){
+                    System.out.printf("(J.G)\t"); 
+                } else if(jogador.getTipoJogo() == 2){
+                    System.out.printf("(J.A)\t");
+                }
             }
+        }
+        System.out.println();
+
+            for (Jogador j : jogadores) {
+
+               // if(j!=null)
+                   // System.out.print(j.mostraPontosJogadaN(i-1)+"\t\t");
+            }
+            System.out.println();
+        System.out.println("----------------------------");
+        System.out.print("Total:");
+        for (Jogador jogador : jogadores) {
+            if(jogador!=null)
+                System.out.printf("\t("+jogador.getSaldoJogador()+")\t");
         }
         System.out.println();
     }
@@ -170,10 +189,28 @@ public class Campeonato {
     private void mostrarDadosJogadoresPorTipo(String tipo) {
         for (Jogador jogador : jogadores) {
             if (jogador != null && jogador.getTipo().equalsIgnoreCase(tipo)) {
-                System.out.printf("%-8s", jogador.getNome() + "(" + jogador.getTipo() + ")\t");
+                System.out.printf("%-8s", jogador.getNome() + "(" + jogador.getTipo() + ")");
+                if(jogador.getTipoJogo() == 1){
+                    System.out.printf("(J.G)\t");
+                } else if(jogador.getTipoJogo() == 2){
+                    System.out.printf("(J.A)\t");
+                }
             }
         }
         System.out.println();
+        for (Jogador j : jogadores) {
+
+            // if(j!=null)
+                // System.out.print(j.mostraPontosJogadaN(i-1)+"\t\t");
+         }
+        System.out.println();
+        System.out.println("----------------------------");
+        System.out.print("Total:");
+        for (Jogador jogador : jogadores) {
+            if(jogador!=null && jogador.getTipo().equalsIgnoreCase(tipo))
+                System.out.printf("\t("+jogador.getSaldoJogador()+")\t");
+     }
+     System.out.println();
     }
     /*public void mostrarCartela(){
         System.out.println("-- Cartela de Resultados --");
