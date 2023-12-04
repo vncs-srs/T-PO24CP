@@ -69,7 +69,7 @@ public class Humano extends Jogador implements InterfaceJogarComoHumano {
                 do{
                     Scanner decisao = new Scanner(System.in);
                     escolha = decisao.nextInt();
-validarJogada(escolha, (JogoGeneral) jogo);
+                    validarJogada(escolha, (JogoGeneral) jogo);
 
                 }while(verificaBoolean(escolha-1) == true);
                 BooleanTrue(escolha-1);

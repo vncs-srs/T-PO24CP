@@ -32,6 +32,28 @@ public class JogoGeneral extends JogoDados{
             }
         }
     }
+    //NUM MUNDO IDEAL ISSO NAO EXISTE
+    public void rolarDadosGeneral()
+    {
+        int i;
+        for(i=0;i<5;i++)
+        {   
+            dados[i].roll();
+        }
+    }
+    public void mostraValorDadosGeneral()
+    {
+        int i;
+        for(i=0;i<5;i++)
+        {   
+            System.out.print(dados[i].getSideUp());
+            if(i!=4)
+            {
+                System.out.print(" ");
+            }
+        }
+    }
+
     public JogoGeneral()
     {
         dados = new Dado[5];
@@ -41,6 +63,7 @@ public class JogoGeneral extends JogoDados{
         {
             dados[i]=new Dado();
         }
+        
     }
     //Jogada de 1: um certo n ́umero de dados (de 0 a 5) marcando o numero 1.
     public void Jogada_de_1 ()
