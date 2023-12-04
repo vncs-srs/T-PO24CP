@@ -7,6 +7,7 @@ public class Humano extends Jogador implements InterfaceJogarComoHumano {
     private int numeroBanco;
     private int opcao;
     private int numeroJogos;
+    private float valorDaAposta;
 
     public Humano (String nome, String tipo,String cpf,String agencia,String conta,int numeroBanco){
         super (nome, tipo);
@@ -42,7 +43,8 @@ public class Humano extends Jogador implements InterfaceJogarComoHumano {
             System.out.println("|--------------------------------------------------------------|");
             System.out.print("Quanto deseja apostar ?  ");
             opcao = menu.nextInt();
-            apostarValorX((float)opcao,getTurno());
+            
+            valorDaAposta = (float)opcao;
 
         }while (opcao == -1);
         if(getSaldoJogador()!=0) 
@@ -95,6 +97,7 @@ public class Humano extends Jogador implements InterfaceJogarComoHumano {
                 mostraJogadasExecutadas((JogoGeneral) jogo);
                 aux++;
             }while(aux !=13);
+            apostarValorX(valorDaAposta,getTurno());
             passaTurno();
             resetBoolean();
             ((JogoGeneral) jogo).Vencer();
@@ -103,6 +106,7 @@ public class Humano extends Jogador implements InterfaceJogarComoHumano {
             }
             else if (jogo instanceof JogoAzar){
                 ((JogoAzar)jogo).ExecutarJogo();
+                apostarValorX(valorDaAposta,getTurno());
                 passaTurno();
                 jogo.getVitoria();
                 jogo.apostar();
