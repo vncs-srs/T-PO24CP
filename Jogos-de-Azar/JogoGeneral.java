@@ -469,9 +469,13 @@ public class JogoGeneral extends JogoDados{
         alvo= jogadas[12] * 2;
         if(pontos>alvo)
         {
-            vitoria=true;
+            setVitoria(true);
+        }
+        else
+        {
+             setVitoria(false);
         }
 
-        setVitoria(vitoria);
+       
     }
 }
