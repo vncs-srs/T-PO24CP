@@ -22,6 +22,8 @@ public class Campeonato {
     public void adicionarJogador(Jogador jogador) {
         if (quantidadeJogadores < jogadores.length) {
             jogadores[quantidadeJogadores] = jogador;
+            //se der BO aqui fazer isso no h/m
+            jogadores[quantidadeJogadores].setSaldoJogador();
             quantidadeJogadores++;
             System.out.println("Jogador " +GREEN+ jogador.getNome() +RESET+ " adicionado.");
         } else {
@@ -51,7 +53,7 @@ public class Campeonato {
             if (jogador != null){
                 if (jogador instanceof Humano){
                     System.out.println("\nJogador " + jogador.getNome() + " (Humano)");
-                    ((Humano)jogador).escolherJogo();
+                    ((Humano)jogador).escolherValorDaAposta();
                 }
                 else if (jogador instanceof Maquina){
                     System.out.println("\nJogador " + jogador.getNome() + " (Maquina)");

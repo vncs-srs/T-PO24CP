@@ -40,6 +40,7 @@ public class JogoGeneral extends JogoDados{
         {   
             dados[i].roll();
         }
+        somarFacesSorteadas(5);
     }
     public void mostraValorDadosGeneral()
     {
@@ -471,6 +472,6 @@ public class JogoGeneral extends JogoDados{
             vitoria=true;
         }
 
-        setVitoria(vitoria);;
+        setVitoria(vitoria);
     }
 }

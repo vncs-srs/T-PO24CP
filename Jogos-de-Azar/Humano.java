@@ -31,6 +31,23 @@ public class Humano extends Jogador implements InterfaceJogarComoHumano {
         return incluirJogo(opcao);
     }
     //fazer um menu 'acima' desse ou expandir esse
+    public void escolherValorDaAposta(){
+        Scanner menu = new Scanner (System.in);
+        
+        do{
+            System.out.println("            > Escolha um Jogo:");
+            System.out.println("|--------------------------------------------------------------|");
+            System.out.println("|Seu saldo e:"+ getSaldoJogador()+"                            |");
+            //System.out.println("|Quanto deseja apostar ?                                       |");
+            System.out.println("|--------------------------------------------------------------|");
+            System.out.print("Quanto deseja apostar ?  ");
+            opcao = menu.nextInt();
+            apostarValorX((float)opcao,getTurno());
+
+        }while (opcao == -1);
+        if(getSaldoJogador()!=0) 
+        escolherJogo();
+    }
     public void escolherJogo(){
         Scanner menu = new Scanner (System.in);
         
@@ -79,10 +96,15 @@ public class Humano extends Jogador implements InterfaceJogarComoHumano {
             }while(aux !=13);
             passaTurno();
             resetBoolean();
+            ((JogoGeneral) jogo).Vencer();
+            jogo.getVitoria();
+            jogo.apostar();
             }
             else if (jogo instanceof JogoAzar){
                 ((JogoAzar)jogo).ExecutarJogo();
                 passaTurno();
+                jogo.getVitoria();
+                jogo.apostar();
             }
             else{
                 System.out.println("Opção inválida. Tente novamente.");

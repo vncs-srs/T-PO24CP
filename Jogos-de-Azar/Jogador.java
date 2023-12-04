@@ -33,6 +33,8 @@ public abstract class Jogador implements Serializable{
         saldoJogador = saldoJogador - X;
         if(saldoJogador>=0F)
         {
+            
+            System.out.println("Valor do n:"+n);
             Jogo[n].setvalorDaAposta(X);
         }
         else

@@ -31,7 +31,7 @@ public abstract class JogoDados implements Serializable, Estatistica{
         int i;
         for(i=0;i<n;i++)
         {   
-            Faces[dados[i].getSideUp()] = Faces[dados[i].getSideUp()] + 1;
+            Faces[dados[i].getSideUp()-1] = Faces[dados[i].getSideUp()-1] + 1;
         }
         
     }
@@ -42,10 +42,10 @@ public abstract class JogoDados implements Serializable, Estatistica{
         for(i=0;i<n;i++)
         {   
             dados[i].roll();
-            // linha de teste// System.out.print("dado:"+(i+1)+" valor:"+dados[i].getSideUp());
+            // System.out.print("dado:"+(i+1)+" valor:"+dados[i].getSideUp()+"|  ");
         }
         //se descomentar a linha de baixo o codigo quebra*************************
-        //somarFacesSorteadas(n);
+        somarFacesSorteadas(n);
     }
 
     public void mostraValorDados(int n)
