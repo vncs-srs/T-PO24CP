@@ -5,7 +5,6 @@ public abstract class Jogador implements Serializable{
     private String nome;
     private String tipo;
     private int turno=0;
-    //private JogoGeneral General ;
     private JogoDados[] Jogo;
     private boolean[] valida;
     //private int pontos;
@@ -124,7 +123,7 @@ public abstract class Jogador implements Serializable{
     //Rola os dados e mostra os valores obtidos
     //ARRUMAR ISSO AQUI , TIPO O QUE ESSE X TA FAZENDO ?
     public void jogarDados() {   
-        System.out.println("turno="+(turno)+"   num="+5);
+        //System.out.println("turno="+(turno)+"   num="+5);
         System.out.println("Jogador " + nome + " jogou o dado e obteve: " );
         //JogoDados jogoAtual = (JogoGeneral) Jogo[turno];
         ((JogoGeneral) Jogo[turno]).rolarDadosGeneral();

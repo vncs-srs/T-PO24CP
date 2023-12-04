@@ -45,7 +45,7 @@ public abstract class JogoDados implements Serializable, Estatistica{
             // linha de teste// System.out.print("dado:"+(i+1)+" valor:"+dados[i].getSideUp());
         }
         //se descomentar a linha de baixo o codigo quebra*************************
-        //somarFacesSorteadas(n);
+        somarFacesSorteadas(n);
     }
 
     public void mostraValorDados(int n)
