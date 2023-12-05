@@ -36,6 +36,14 @@ public abstract class JogoDados implements Serializable, Estatistica{
         }
         
     }
+    public void printarFacesSorteadas()
+    {
+        for(int i=0;i<6;i++)
+        {
+            System.out.print("\nFace: "+(i+1)+"   foi sorteada: "+Faces[i]);
+        }
+        
+    }
     public void rolarDados(int n)
     {
         //n=5(general)  n=2(azar)
