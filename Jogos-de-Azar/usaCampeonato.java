@@ -78,7 +78,6 @@ public class usaCampeonato {
                         jogo.adicionarJogador(jogador);
                     }
                     //limpaTerminal();
-                    //jogo.adicionarJogador(jogador);
 
                     break;
                 case 'r':
@@ -120,7 +119,7 @@ public class usaCampeonato {
     public static void main(String[] args) {
         Campeonato jogo = new Campeonato();
 
-        //Mostra Escrito na tela JogoGeneal
+        //Mostra Escrito na tela urubu do pix
         String nomeArquivo = "jogosdeazarASCII.txt";
         try (BufferedReader br = new BufferedReader(new FileReader(nomeArquivo))) {
             String linha;

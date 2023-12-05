@@ -63,59 +63,6 @@ public class Campeonato {
         }
     }
 
-    /*public void iniciarCampeonato(){
-        int rodadas = 13; 
-        int entrada;
-        String verificaTipo;
-        Scanner decisao = new Scanner(System.in);
-        for (int i = 0; i < rodadas; i++) {
-            System.out.println("\nRodada " + (i + 1) + ":");
-            for (Jogador jogador : jogadores) 
-            { 
-                entrada = 0;
-                if(jogador!=null)
-                {
-                    if(i==0)
-                    {
-                        jogador.resetPontos();
-                    }
-                    switch(jogador.getTipo()){
-                    case "h":
-                        System.out.println("\nJogador " + jogador.getNome() + " (Humano)");
-                        jogador.jogarDados();
-                        System.out.print("\n>Para qual jogada deseja marcar: [1 - 13]\n1 2 3 4 5 6 7(T) 8(Q) 9(F) 10(S-) 11(S+) 12(G) 13(X)\n");
-                        do{
-                            entrada = decisao.nextInt();
-                            jogador.validarJogada(entrada);
-                            
-                            if(jogador.verificaBoolean(entrada-1)== true)
-                                System.out.println("Opcao invalida. Tente novamente");
-                        }while(jogador.verificaBoolean(entrada-1) == true);
-                        jogador.BooleanTrue(entrada-1);
-                        jogador.mostraJogadasExecutadas();
-
-                        break;
-                    case "m":
-                        System.out.println("\nJogador " + jogador.getNome() + " (Maquina)");
-                        jogador.jogarDados();
-                        System.out.print("\nPara qual jogada deseja marcar: [1 - 13]\n1 2 3 4 5 6 7(T) 8(Q) 9(F) 10(S-) 11(S+) 12(G) 13(X)\n");
-                        do{
-                            entrada = jogador.maquina();
-                            jogador.validarJogada(entrada);
-                            
-                        }while(jogador.verificaBoolean(entrada-1) == true);
-                        jogador.BooleanTrue(entrada-1);
-                        jogador.mostraJogadasExecutadas();
-                        break;
-                    }
-                    if(i==12)
-                    jogador.resetBoolean();
-
-                }
-                
-            }
-        } 
-    }*/
     //Mostra a cartela de resultados
 
     public void mostrarCartela(){
@@ -158,36 +105,6 @@ public class Campeonato {
         }while (opcao != 0);
         
     }
-   /*  private void mostrarDadosTodosJogadores() {
-        for (Jogador jogador : jogadores) {
-            if (jogador != null) {
-                System.out.printf("%-8s", jogador.getNome() + "(" + jogador.getTipo() + ")");
-                if(jogador.getTipoJogo() == 1){
-                    System.out.printf("(J.G)\t"); 
-                } else if(jogador.getTipoJogo() == 2){
-                    System.out.printf("(J.A)\t");
-                }
-            }
-        }
-        System.out.println();
-
-            for (Jogador j : jogadores) {
-                if(j!=null){
-                    if (j.getTurno() != 0)
-                        j.setTurno();
-                    System.out.print(j.getterGetSaldoTemporario()+"\t\t");
-                    j.passaTurno();
-                }
-            }
-            System.out.println();
-        System.out.println("----------------------------");
-        System.out.print("Total:");
-        for (Jogador jogador : jogadores) {
-            if(jogador!=null)
-                System.out.printf("\t("+jogador.getSaldoJogador()+")\t");
-        }
-        System.out.println();
-    }*/
     private void mostrarDadosTodosJogadores() {
         for (Jogador jogador : jogadores) {
             if (jogador != null) {
@@ -223,72 +140,19 @@ public class Campeonato {
         System.out.println();
     }
 
-private String obterTipoJogoAbreviado(Jogador jogador) {
-    int tipoJogo = jogador.getTipoJogo();
+    private String obterTipoJogoAbreviado(Jogador jogador) {
+        int tipoJogo = jogador.getTipoJogo();
 
-    switch (tipoJogo) {
-        case 1:
-            return "J.G";
-        case 2:
-            return "J.A";
-        default:
-            return "";
-    }
-}
-    /*private void mostrarDadosJogadoresPorTipo(String tipo) {
-        for (Jogador jogador : jogadores) {
-            if (jogador != null && jogador.getTipo().equalsIgnoreCase(tipo)) {
-                System.out.printf("%-8s", jogador.getNome() + "(" + jogador.getTipo() + ")");
-                if(jogador.getTipoJogo() == 1){
-                    System.out.printf("(J.G)\t");
-                } else if(jogador.getTipoJogo() == 2){
-                    System.out.printf("(J.A)\t");
-                }
-            }
+        switch (tipoJogo) {
+            case 1:
+                return "J.G";
+            case 2:
+                return "J.A";
+            default:
+                return "";
         }
-        System.out.println();
-        for (Jogador j : jogadores) {
-                if(j!=null && j.getTipo().equalsIgnoreCase(tipo)){
-                    if (j.getTurno() != 0)
-                        j.setTurno();
-                    //System.out.print(j.getterGetSaldoTemporario()+"\t\t");
-                }
-         }
-        System.out.println();
-        System.out.println("----------------------------");
-        System.out.print("Total:");
-        for (Jogador jogador : jogadores) {
-            if(jogador!=null && jogador.getTipo().equalsIgnoreCase(tipo))
-                System.out.printf("\t("+jogador.getSaldoJogador()+")\t");
-     }
-     System.out.println();
     }
 
-    /*public void mostrarCartela(){
-        System.out.println("-- Cartela de Resultados --");
-
-        System.out.printf("%-10s", "");
-        for (Jogador jogador : jogadores) {
-            if(jogador!=null)
-                System.out.printf("%-8s", jogador.getNome() + "(" + jogador.getTipo() + ")\t");
-        }
-        System.out.println();
-        for (int i = 1; i <= 13; i++) {
-            System.out.printf("%-10s", i);
-            for (Jogador j : jogadores) {
-                if(j!=null)
-                    System.out.print(j.mostraPontosJogadaN(i-1)+"\t\t");
-            }
-            System.out.println();
-        }
-        System.out.println("----------------------------");
-        System.out.print("Total:");
-        for (Jogador jogador : jogadores) {
-            if(jogador!=null)
-                System.out.printf("\t("+jogador.salvaPontos()+")\t");
-        }
-        System.out.println();
-    }*/
 
     //Grava os dados do jogo em arquivo. 
     public void gravarEmArquivo()

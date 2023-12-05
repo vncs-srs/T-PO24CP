@@ -9,7 +9,6 @@ public class Maquina extends Jogador implements InterfaceJogarComoMaquina{
         super (nome, tipo);
     }
     public void escolherValorDaAposta(){
-        //Scanner menu = new Scanner (System.in);
         
         do{
             if(getSaldoJogador()==0)
@@ -25,7 +24,6 @@ public class Maquina extends Jogador implements InterfaceJogarComoMaquina{
             System.out.println("|--------------------------------------------------------------|");
             System.out.println("|Seu saldo e: "+ getSaldoJogador()+"                                            |");
             System.out.println("|--------------------------------------------------------------|");
-            //System.out.print("Quanto deseja apostar ?  ");
             opcao = 25;
             
             valorDaAposta = (float)opcao;
@@ -35,7 +33,7 @@ public class Maquina extends Jogador implements InterfaceJogarComoMaquina{
         escolherJogo();
     }
     public void escolherJogo(){
-        opcao = Estrategia(2); //Verificar se isso funciona.. 
+        opcao = Estrategia(2);
         if (opcao == 1 || opcao == 2){
             JogoDados jogo = incluirJogo(opcao);
             escolherJogada(jogo);

@@ -32,7 +32,6 @@ public class JogoGeneral extends JogoDados{
             }
         }
     }
-    //NUM MUNDO IDEAL ISSO NAO EXISTE
     public void rolarDadosGeneral()
     {
         int i;

@@ -28,7 +28,6 @@ public class Humano extends Jogador implements InterfaceJogarComoHumano {
     public int getNumeroBanco(){
         return numeroBanco;
     }
-    //fazer um menu 'acima' desse ou expandir esse
     public void escolherValorDaAposta(){
         Scanner menu = new Scanner (System.in);
         

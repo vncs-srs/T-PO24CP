@@ -7,17 +7,14 @@ public abstract class Jogador implements Serializable{
     private int turno=0;
     private JogoDados[] Jogo;
     private boolean[] valida;
-    //private int pontos;
     private float saldoJogador;
     private int tipoJogo;
 
     public Jogador(String nome, String tipo) {
         this.nome = nome;
         this.tipo = tipo;
-        //this.General = new JogoGeneral();
         this.Jogo = new JogoDados[10];
         this.valida = new boolean[13] ;
-        //this.pontos = pontos;
 
     }
     public float getSaldoJogador()
@@ -55,7 +52,6 @@ public abstract class Jogador implements Serializable{
         switch (n) {
             case 1:
                 Jogo[turno] = new JogoGeneral();
-                //talvez isso esteja errado
                 return Jogo[turno];
             case 2:
                 Jogo[turno] = new JogoAzar();
@@ -120,25 +116,12 @@ public abstract class Jogador implements Serializable{
     {
         return valida[i];
     }
-    /*public void resetPontos(JogoGeneral General)
-    {
-        General.inicializaJogadas();
-    }*/
-    /*public int mostraPontosJogadaN (int N)
-    {
-        return General.retornaValor(N) ;
-    }*/
-
-
-    //Rola os dados e mostra os valores obtidos
-    //ARRUMAR ISSO AQUI , TIPO O QUE ESSE X TA FAZENDO ?
     public void jogarDados() {   
-        //System.out.println("turno="+(turno)+"   num="+5);
         System.out.println("Jogador " + nome + " jogou o dado e obteve: " );
-        //JogoDados jogoAtual = (JogoGeneral) Jogo[turno];
         ((JogoGeneral) Jogo[turno]).rolarDadosGeneral();
         ((JogoGeneral) Jogo[turno]).mostraValorDadosGeneral();       
     }
+
     //Mostra as jogadas execultadas pelo jogador
     public void mostraJogadasExecutadas(JogoGeneral General) {
         System.out.println("\nJogadas executadas por " + nome + ": ");
@@ -161,10 +144,4 @@ public abstract class Jogador implements Serializable{
         return Jogo[i].getSaldoTemporario();
     }
 
-   /*  public int salvaPontos()
-    {
-        pontos = General.somaPontos();
-
-        return pontos;
-    }*/
 }

@@ -4,7 +4,6 @@ public class JogoAzar extends JogoDados {
   
     private Dado[] dados;
     private int[] jogadas;
-    //private boolean vitoria;
     
     public int retornaValor(int numeroDaJogada)
     {
@@ -13,18 +12,15 @@ public class JogoAzar extends JogoDados {
 
     public void rolarDados(int n)
     {
-        //n=5(general)  n=2(azar)
         int i;
         for(i=0;i<n;i++)
         {   
-            //System.out.println(i);
             dados[i].roll();
         }
     }
 
     public void mostraValorDados(int n)
     {
-        //n=5(general)  n=2(azar)
         int i, aux;
         for(i=0;i<n;i++)
         {   
@@ -38,8 +34,6 @@ public class JogoAzar extends JogoDados {
         System.out.println(" = "+somaDados(n));
         
     }
-
-    //essa tem que adaptar de forma diferente
     public void mostraJogadas()
     {
         int i;
@@ -134,10 +128,6 @@ public class JogoAzar extends JogoDados {
                 System.out.println("eba, vc venceu!");
                 setVitoria(true);
                 break;
-            }
-            else
-            {
-                //System.out.println("tente novamente.");   
             }
             if(alvo==0)
             {
