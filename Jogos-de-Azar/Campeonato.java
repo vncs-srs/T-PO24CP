@@ -172,9 +172,12 @@ public class Campeonato {
         System.out.println();
 
             for (Jogador j : jogadores) {
-
-               // if(j!=null)
-                   // System.out.print(j.mostraPontosJogadaN(i-1)+"\t\t");
+                if(j!=null){
+                    if (j.getTurno() != 0)
+                        j.setTurno();
+                    System.out.print(j.getterGetSaldoTemporario()+"\t\t");
+                    j.passaTurno();
+                }
             }
             System.out.println();
         System.out.println("----------------------------");
@@ -199,9 +202,11 @@ public class Campeonato {
         }
         System.out.println();
         for (Jogador j : jogadores) {
-
-            // if(j!=null)
-                // System.out.print(j.mostraPontosJogadaN(i-1)+"\t\t");
+                if(j!=null && j.getTipo().equalsIgnoreCase(tipo)){
+                    if (j.getTurno() != 0)
+                        j.setTurno();
+                    System.out.print(j.getterGetSaldoTemporario()+"\t\t");
+                }
          }
         System.out.println();
         System.out.println("----------------------------");
