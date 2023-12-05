@@ -158,7 +158,7 @@ public class Campeonato {
         }while (opcao != 0);
         
     }
-    private void mostrarDadosTodosJogadores() {
+   /*  private void mostrarDadosTodosJogadores() {
         for (Jogador jogador : jogadores) {
             if (jogador != null) {
                 System.out.printf("%-8s", jogador.getNome() + "(" + jogador.getTipo() + ")");
@@ -187,9 +187,55 @@ public class Campeonato {
                 System.out.printf("\t("+jogador.getSaldoJogador()+")\t");
         }
         System.out.println();
+    }*/
+    private void mostrarDadosTodosJogadores() {
+        for (Jogador jogador : jogadores) {
+            if (jogador != null) {
+                System.out.printf("%-8s", jogador.getNome() + "(" + jogador.getTipo() + ")");
+    
+                for (int i = 0; i < jogador.getTurno(); i++) {
+                    System.out.printf("(" + obterTipoJogoAbreviado(jogador) + ")");
+                    System.out.printf("%.2f\t\t", + jogador.getterGetSaldoTemporario(i));
+                }
+                System.out.print("Total:");
+                System.out.printf("\t(%.2f)\t\t", jogador.getSaldoJogador());
+                System.out.println();
+            }
+        }
+        System.out.println();
+    }
+    
+    private void mostrarDadosJogadoresPorTipo(String tipo) {
+        for (Jogador jogador : jogadores) {
+            if (jogador != null && jogador.getTipo().equalsIgnoreCase(tipo)) {
+                System.out.printf("%-8s", jogador.getNome() + "(" + jogador.getTipo() + ")");
+    
+                for (int i = 0; i < jogador.getTurno(); i++) {
+                    System.out.printf("(" + obterTipoJogoAbreviado(jogador) + ")");
+                    System.out.printf("%.2f\t\t", + jogador.getterGetSaldoTemporario(i));
+
+                }
+                System.out.print("Total:");
+                System.out.printf("\t(%.2f)\t\t", jogador.getSaldoJogador());
+                System.out.println();
+            }
+        }
+        System.out.println();
     }
 
-    private void mostrarDadosJogadoresPorTipo(String tipo) {
+private String obterTipoJogoAbreviado(Jogador jogador) {
+    int tipoJogo = jogador.getTipoJogo();
+
+    switch (tipoJogo) {
+        case 1:
+            return "J.G";
+        case 2:
+            return "J.A";
+        default:
+            return "";
+    }
+}
+    /*private void mostrarDadosJogadoresPorTipo(String tipo) {
         for (Jogador jogador : jogadores) {
             if (jogador != null && jogador.getTipo().equalsIgnoreCase(tipo)) {
                 System.out.printf("%-8s", jogador.getNome() + "(" + jogador.getTipo() + ")");
@@ -205,7 +251,7 @@ public class Campeonato {
                 if(j!=null && j.getTipo().equalsIgnoreCase(tipo)){
                     if (j.getTurno() != 0)
                         j.setTurno();
-                    System.out.print(j.getterGetSaldoTemporario()+"\t\t");
+                    //System.out.print(j.getterGetSaldoTemporario()+"\t\t");
                 }
          }
         System.out.println();
@@ -217,6 +263,7 @@ public class Campeonato {
      }
      System.out.println();
     }
+
     /*public void mostrarCartela(){
         System.out.println("-- Cartela de Resultados --");
 
