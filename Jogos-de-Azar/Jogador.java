@@ -4,7 +4,7 @@ public abstract class Jogador implements Serializable{
 
     private String nome;
     private String tipo;
-    private int turno=0;
+    private int turno;
     private JogoDados[] Jogo;
     private boolean[] valida;
     private float saldoJogador;
@@ -15,6 +15,7 @@ public abstract class Jogador implements Serializable{
         this.tipo = tipo;
         this.Jogo = new JogoDados[10];
         this.valida = new boolean[13] ;
+        turno = 0;
 
     }
     public float getSaldoJogador()
